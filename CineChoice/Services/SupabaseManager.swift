@@ -11,10 +11,11 @@ import Supabase
 class SupabaseManager {
     
     static let shared = SupabaseManager()
+    let supabase = SupabaseClient(supabaseURL: URL(string: "https://shucboqluxegybsrzyfz.supabase.co")!, supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNodWNib3FsdXhlZ3lic3J6eWZ6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNDM4MjEwOCwiZXhwIjoyMDI5OTU4MTA4fQ.PE-zDVm6PhmWvhmXdNa0PGCy9V-I7p9Dv70aJCIuqQM")
     
     
     func fetchUser(for userid: String) async throws -> [UserModel] {
-        let response = try await supabase.database.from("user").select().equals("userID", value: userid).equals("shown", value: "false").execute()
+        let response = try await supabase.from("user").select().equals("userID", value: userid).equals("shown", value: "false").execute()
         
         let data = response.data
         
@@ -30,7 +31,7 @@ class SupabaseManager {
     }
     
     func fetchFilms() async throws -> [FilmModel] {
-        let response = try await supabase.database.from("film").select().execute()
+        let response = try await supabase.from("film").select().execute()
         
         let data = response.data
         
@@ -59,7 +60,7 @@ class SupabaseManager {
                     )
                     """
         
-        let response = try await supabase.database.from("interaction").select(query).equals("userID", value: userid).execute()
+        let response = try await supabase.from("interaction").select(query).equals("userID", value: userid).execute()
         
         let data = response.data
         
