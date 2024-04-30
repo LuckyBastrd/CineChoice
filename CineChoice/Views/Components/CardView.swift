@@ -6,20 +6,20 @@
 //
 
 import SwiftUI
+import Kingfisher
 import CloudKit
 
 struct CardView: View {
     
-    @ObservedObject var cardViewModel: CardViewModel
+    //@ObservedObject var filmViewModel = FilmViewModel()
+    @ObservedObject var cardViewModel = CardViewModel()
     @State private var xOffset: CGFloat = 0
     @State private var yOffset: CGFloat = 0
     @State private var degrees: Double = 0
     @State private var isLoadingImage = true
-    @State private var isLiked = false
-    @State private var isDisliked = false
-    @State private var isNotWatched = false
     
     let cardCount: Int
+    //let film: FilmModel
     let card: CardModel
     let index: Int
     @Binding var currentIndex: Int 
@@ -27,38 +27,19 @@ struct CardView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
-                
-                ZStack {                    
-                    URLImageView(url: card.film.filmPoster.fileURL?.absoluteString ?? "")
+                ZStack {          
+                    KFImage(URL(string: card.film.filmPoster))
+                        .resizable()
                         .scaledToFill()
-                    
-                    if isLiked {
-                        LikedMovieIndicatorView(xOffset: $xOffset)
-                    }
                     
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.white, lineWidth: 10)
                         .frame(width: SizeConstant.cardWidth + 1, height: SizeConstant.cardHeight + 1)
                     
+                    LikedMovieIndicatorView(xOffset: $xOffset)
                     DislikedMovieIndicatorView(xOffset: $xOffset)
                     NotWatchYetMovieIndicatorView(yOffset: $yOffset)
                 }
-//                
-//                URLImageView(url: card.film.filmPoster.fileURL?.absoluteString ?? "")
-//                    .scaledToFill()
-                
-//                if isLoadingImage {
-//                    Rectangle()
-//                        .foregroundColor(.ccGray)
-//                } else {
-//                    URLImageView(url: card.film.filmPoster.fileURL?.absoluteString ?? "")
-//                        .scaledToFill()
-//                }
-                
-                
-//                LikedMovieIndicatorView(xOffset: $xOffset)
-//                DislikedMovieIndicatorView(xOffset: $xOffset)
-//                NotWatchYetMovieIndicatorView(yOffset: $yOffset)
             }
         }
         .frame(width: SizeConstant.cardWidth, height: SizeConstant.cardHeight)
@@ -77,14 +58,14 @@ struct CardView: View {
                 })
         )
         .onAppear {  
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-//                isLoadingImage = false
-//                if let fileURL = card.film.filmSoundtrack.fileURL {
-//                    AudioPlayer.playMusic(url: fileURL)
-//                    
-//                    currentIndex = cardCount
-//                }
-//            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+                if let soundtrackURL = URL(string: card.film.filmSoundtrack) {
+                    AudioPlayer.playMusic(url: soundtrackURL)
+                    currentIndex = cardCount
+                } else {
+                    print("Invalid soundtrack URL")
+                }
+            }
         }
     }
 }
@@ -107,7 +88,7 @@ private extension CardView {
 
         } completion: {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                cardViewModel.removeCard(card, index: index)
+                cardViewModel.removeCard(card)
                 
                 currentIndex -= 1
             }
@@ -120,7 +101,7 @@ private extension CardView {
             degrees = -12
         } completion: {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                cardViewModel.removeCard(card, index: index)
+                cardViewModel.removeCard(card)
                 
                 currentIndex -= 1
             }
@@ -132,7 +113,7 @@ private extension CardView {
             yOffset = -1000
         } completion: {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                cardViewModel.removeCard(card, index: index)
+                cardViewModel.removeCard(card)
                 
                 currentIndex -= 1
             }
@@ -178,6 +159,6 @@ private extension CardView {
     }
 }
 
-#Preview {
-    MainView()
-}
+//#Preview {
+//    MainView()
+//}

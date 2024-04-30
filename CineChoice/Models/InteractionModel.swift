@@ -7,9 +7,28 @@
 
 import CloudKit
 
-struct InteractionModel {
-    let recordID: CKRecord.ID
-    let userID: CKRecord.Reference
-    let filmID: CKRecord.Reference
+//struct InteractionModel: Decodable {
+//    let interactionID: Int
+//    let userID: String
+//    let filmID: [FilmModel]
+//    let action: String
+//    let shown: Bool
+//}
+
+
+struct InteractionModel: Decodable {
+    let interactionID: Int
+    let userID: String
+    let filmID: Int
     let action: String
+    let shown: Bool
+    
+    let film: Film
+
+    struct Film: Decodable {
+        let filmID: Int
+        let filmTitle: String
+        let filmPoster: String
+        let filmSoundtrack: String
+    }
 }

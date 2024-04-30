@@ -12,5 +12,7 @@ struct CardModel {
 }
 
 extension CardModel: Identifiable, Hashable {
-    var id: String { return film.filmID }
+    var id: Int { return film.filmID }
 }
+
+

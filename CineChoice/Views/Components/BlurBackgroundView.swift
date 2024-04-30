@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct BlurBackgroundView: View {
-    
-    @State private var isLoadingImage = true
-    
     let card: CardModel
     
     var body: some View {
@@ -18,18 +16,11 @@ struct BlurBackgroundView: View {
             ZStack {
                 GeometryReader { proxy in
                     let frame = proxy.frame(in: .global)
-//                    if let url = card.film.filmPoster.fileURL {
-//                        URLImageView(url: url.absoluteString)
-//                            .frame(width: frame.size.width, height: frame.size.height)
-//                    }
                     
-                    if isLoadingImage {
-                        Rectangle()
-                            .foregroundColor(.ccGray)
-                    } else {
-                        URLImageView(url: card.film.filmPoster.fileURL?.absoluteString ?? "")
-                            .frame(width: frame.size.width, height: frame.size.height)
-                    }
+                    KFImage(URL(string: card.film.filmPoster))
+                        .resizable()
+                        .scaledToFill()
+                
                 }
                 
                 GeometryReader { proxy in
@@ -37,11 +28,6 @@ struct BlurBackgroundView: View {
                 }
             }
             .ignoresSafeArea(.all, edges: .all)
-        }
-        .onAppear {  
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                isLoadingImage = false
-            }
         }
     }  
 }

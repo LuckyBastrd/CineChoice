@@ -37,12 +37,22 @@
 		0584A7F82BDC0D2A00C7B67B /* Film+CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7F72BDC0D2A00C7B67B /* Film+CloudKit.swift */; };
 		0584A7FA2BDC251C00C7B67B /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7F92BDC251C00C7B67B /* CardModel.swift */; };
 		0584A7FC2BDC25C400C7B67B /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7FB2BDC25C400C7B67B /* CardViewModel.swift */; };
-		0584A8002BDC279000C7B67B /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7FF2BDC279000C7B67B /* CardService.swift */; };
 		0584A8022BDD44DD00C7B67B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8012BDD44DD00C7B67B /* AudioPlayer.swift */; };
 		0584A82A2BDEAADF00C7B67B /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8292BDEAADF00C7B67B /* CustomTabBarView.swift */; };
 		0584A82E2BDF82E100C7B67B /* SwipeColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A82D2BDF82E100C7B67B /* SwipeColorConstant.swift */; };
 		0584A8302BDF934600C7B67B /* AirtableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A82F2BDF934600C7B67B /* AirtableManager.swift */; };
 		0584A8332BDFC6F800C7B67B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A8322BDFC6F800C7B67B /* Kingfisher */; };
+		0584A8352BDFF5EA00C7B67B /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8342BDFF5EA00C7B67B /* CommonModel.swift */; };
+		0584A8382BE00C6500C7B67B /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8372BE00C6500C7B67B /* SupabaseManager.swift */; };
+		0584A8482BE00EC500C7B67B /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A8472BE00EC500C7B67B /* Supabase */; };
+		0584A8582BE0105900C7B67B /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A8572BE0105900C7B67B /* Auth */; };
+		0584A85A2BE0105900C7B67B /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A8592BE0105900C7B67B /* Functions */; };
+		0584A85C2BE0105900C7B67B /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A85B2BE0105900C7B67B /* PostgREST */; };
+		0584A85E2BE0105900C7B67B /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A85D2BE0105900C7B67B /* Realtime */; };
+		0584A8602BE0105900C7B67B /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A85F2BE0105900C7B67B /* Storage */; };
+		0584A8622BE018D000C7B67B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8612BE018D000C7B67B /* UserViewModel.swift */; };
+		0584A8642BE03BE700C7B67B /* InteractionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8632BE03BE700C7B67B /* InteractionViewModel.swift */; };
+		0584A8682BE0C7FC00C7B67B /* RemoveCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8672BE0C7FC00C7B67B /* RemoveCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,11 +86,15 @@
 		0584A7F72BDC0D2A00C7B67B /* Film+CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Film+CloudKit.swift"; sourceTree = "<group>"; };
 		0584A7F92BDC251C00C7B67B /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		0584A7FB2BDC25C400C7B67B /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
-		0584A7FF2BDC279000C7B67B /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
 		0584A8012BDD44DD00C7B67B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		0584A8292BDEAADF00C7B67B /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		0584A82D2BDF82E100C7B67B /* SwipeColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeColorConstant.swift; sourceTree = "<group>"; };
 		0584A82F2BDF934600C7B67B /* AirtableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirtableManager.swift; sourceTree = "<group>"; };
+		0584A8342BDFF5EA00C7B67B /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
+		0584A8372BE00C6500C7B67B /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
+		0584A8612BE018D000C7B67B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		0584A8632BE03BE700C7B67B /* InteractionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionViewModel.swift; sourceTree = "<group>"; };
+		0584A8672BE0C7FC00C7B67B /* RemoveCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +102,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0584A85A2BE0105900C7B67B /* Functions in Frameworks */,
+				0584A8482BE00EC500C7B67B /* Supabase in Frameworks */,
+				0584A85C2BE0105900C7B67B /* PostgREST in Frameworks */,
+				0584A85E2BE0105900C7B67B /* Realtime in Frameworks */,
 				0584A8332BDFC6F800C7B67B /* Kingfisher in Frameworks */,
 				0584A7BD2BDA485C00C7B67B /* FCUUID in Frameworks */,
+				0584A8602BE0105900C7B67B /* Storage in Frameworks */,
+				0584A8582BE0105900C7B67B /* Auth in Frameworks */,
 				0584A7BA2BDA485300C7B67B /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +122,7 @@
 			children = (
 				0584A7A12BDA45D200C7B67B /* CineChoice */,
 				0584A7A02BDA45D200C7B67B /* Products */,
+				0584A8462BE00EC500C7B67B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +179,8 @@
 				0584A7B62BDA482800C7B67B /* AppData.swift */,
 				0584A7F12BDC09D200C7B67B /* FilmViewModel.swift */,
 				0584A7FB2BDC25C400C7B67B /* CardViewModel.swift */,
+				0584A8612BE018D000C7B67B /* UserViewModel.swift */,
+				0584A8632BE03BE700C7B67B /* InteractionViewModel.swift */,
 			);
 			path = VIewModel;
 			sourceTree = "<group>";
@@ -182,6 +205,7 @@
 				0584A7DE2BDAA36300C7B67B /* NotWatchYetMovieIndicatorView.swift */,
 				0584A7E02BDAA90700C7B67B /* CardStackView.swift */,
 				0584A8292BDEAADF00C7B67B /* CustomTabBarView.swift */,
+				0584A8672BE0C7FC00C7B67B /* RemoveCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -212,6 +236,7 @@
 				0584A7EA2BDC044300C7B67B /* FilmModel.swift */,
 				0584A7EC2BDC06A200C7B67B /* InteractionModel.swift */,
 				0584A7F92BDC251C00C7B67B /* CardModel.swift */,
+				0584A8342BDFF5EA00C7B67B /* CommonModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,8 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				0584A7F42BDC0CDB00C7B67B /* CloudKitManager.swift */,
-				0584A7FF2BDC279000C7B67B /* CardService.swift */,
 				0584A82F2BDF934600C7B67B /* AirtableManager.swift */,
+				0584A8372BE00C6500C7B67B /* SupabaseManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -240,6 +265,13 @@
 				0584A7F72BDC0D2A00C7B67B /* Film+CloudKit.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0584A8462BE00EC500C7B67B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +294,12 @@
 				0584A7B92BDA485300C7B67B /* Lottie */,
 				0584A7BC2BDA485C00C7B67B /* FCUUID */,
 				0584A8322BDFC6F800C7B67B /* Kingfisher */,
+				0584A8472BE00EC500C7B67B /* Supabase */,
+				0584A8572BE0105900C7B67B /* Auth */,
+				0584A8592BE0105900C7B67B /* Functions */,
+				0584A85B2BE0105900C7B67B /* PostgREST */,
+				0584A85D2BE0105900C7B67B /* Realtime */,
+				0584A85F2BE0105900C7B67B /* Storage */,
 			);
 			productName = CineChoice;
 			productReference = 0584A79F2BDA45D200C7B67B /* CineChoice.app */;
@@ -295,6 +333,7 @@
 				0584A7B82BDA485300C7B67B /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				0584A7BB2BDA485C00C7B67B /* XCRemoteSwiftPackageReference "FCUUID" */,
 				0584A8312BDFC6F800C7B67B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */,
 			);
 			productRefGroup = 0584A7A02BDA45D200C7B67B /* Products */;
 			projectDirPath = "";
@@ -323,8 +362,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0584A8682BE0C7FC00C7B67B /* RemoveCardView.swift in Sources */,
 				0584A7F82BDC0D2A00C7B67B /* Film+CloudKit.swift in Sources */,
 				0584A7A52BDA45D200C7B67B /* ContentView.swift in Sources */,
+				0584A8352BDFF5EA00C7B67B /* CommonModel.swift in Sources */,
 				0584A7DB2BDAA1D100C7B67B /* LikedMovieIndicatorView.swift in Sources */,
 				0584A8302BDF934600C7B67B /* AirtableManager.swift in Sources */,
 				0584A7DF2BDAA36300C7B67B /* NotWatchYetMovieIndicatorView.swift in Sources */,
@@ -333,7 +374,6 @@
 				0584A7C42BDA4D4B00C7B67B /* MainView.swift in Sources */,
 				0584A7C92BDA4F9E00C7B67B /* URLImageView.swift in Sources */,
 				0584A82A2BDEAADF00C7B67B /* CustomTabBarView.swift in Sources */,
-				0584A8002BDC279000C7B67B /* CardService.swift in Sources */,
 				0584A7A32BDA45D200C7B67B /* CineChoiceApp.swift in Sources */,
 				0584A7FC2BDC25C400C7B67B /* CardViewModel.swift in Sources */,
 				0584A7F02BDC09B000C7B67B /* FilmCKView.swift in Sources */,
@@ -345,8 +385,11 @@
 				0584A7E12BDAA90700C7B67B /* CardStackView.swift in Sources */,
 				0584A7D52BDA8F1300C7B67B /* SizeConstant.swift in Sources */,
 				0584A7C22BDA4CD900C7B67B /* InformationView.swift in Sources */,
+				0584A8382BE00C6500C7B67B /* SupabaseManager.swift in Sources */,
 				0584A7CB2BDA613400C7B67B /* BlurView.swift in Sources */,
+				0584A8642BE03BE700C7B67B /* InteractionViewModel.swift in Sources */,
 				0584A7F22BDC09D200C7B67B /* FilmViewModel.swift in Sources */,
+				0584A8622BE018D000C7B67B /* UserViewModel.swift in Sources */,
 				0584A7B32BDA480A00C7B67B /* SplashView.swift in Sources */,
 				0584A7D12BDA8AF000C7B67B /* CardView.swift in Sources */,
 				0584A7E92BDC043B00C7B67B /* UserModel.swift in Sources */,
@@ -590,6 +633,14 @@
 				minimumVersion = 7.11.0;
 			};
 		};
+		0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase-community/supabase-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -607,6 +658,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0584A8312BDFC6F800C7B67B /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		0584A8472BE00EC500C7B67B /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		0584A8572BE0105900C7B67B /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		0584A8592BE0105900C7B67B /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		0584A85B2BE0105900C7B67B /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		0584A85D2BE0105900C7B67B /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		0584A85F2BE0105900C7B67B /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,14 +7,30 @@
 
 import SwiftUI
 import CloudKit
+import FCUUID
 
 struct FilmCKView: View {
     
-    @ObservedObject var filmViewModel = FilmViewModel()
-    let airtableManager = AirtableManager()
+//    @ObservedObject var filmViewModel = FilmViewModel()
+//    let airtableManager = AirtableManager()
+    
+    @StateObject var filmViewModel = FilmViewModel()
+    @StateObject var userViewModel = UserViewModel()    
     
     var body: some View {
-        Button("Save Film") {
+        VStack {
+            //
+        }
+        .onAppear{
+            Task {
+                do {
+                    try await userViewModel.fetchUser(for: "aa")
+                } catch {
+                    print("Error fetching film data: \(error)")
+                }
+            }
+        }
+//        Button("Save Film") {
 //            let film = FilmModel(recordID: CKRecord.ID(recordName: "Film"),
 //                            filmID: "4",
 //                            filmTitle: "Dune",
@@ -25,9 +41,9 @@ struct FilmCKView: View {
 //                            filmNotWatched: 0)
 //            
 //            filmViewModel.saveFilmToCloudKit(film: film)
-            
-            airtableManager.fetchRecordsFromAirtable()
-        }
+//            
+//            airtableManager.fetchRecordsFromAirtable()
+//        }
     }
 }
 

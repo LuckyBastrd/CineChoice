@@ -5,28 +5,34 @@
 //  Created by Lucky on 26/04/24.
 //
 
-import CloudKit
-import FCUUID
-
-//struct UserModel {
-//    let recordID: CKRecord.ID
-//    let userID: String = FCUUID.uuidForDevice()
-//    let profilePicture: CKAsset
+//import CloudKit
+//import FCUUID
+//
+////struct UserModel {
+////    let recordID: CKRecord.ID
+////    let userID: String = FCUUID.uuidForDevice()
+////    let profilePicture: CKAsset
+////}
+//
+//struct UserPicture: Codable {
+//    let url: String
+//}
+//
+//struct Fields: Codable {
+//    let userID: String
+//    let userPicture: [UserPicture]
+//}
+//
+//struct Record: Codable {
+//    let fields: Fields
+//}
+//
+//struct UserModel: Codable {
+//    let records: [Record]
 //}
 
-struct UserPicture: Codable {
-    let url: String
-}
 
-struct Fields: Codable {
+struct UserModel: Decodable {
     let userID: String
-    let userPicture: [UserPicture]
-}
-
-struct Record: Codable {
-    let fields: Fields
-}
-
-struct UserModel: Codable {
-    let records: [Record]
+    let userPicture: String
 }

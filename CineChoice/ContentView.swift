@@ -10,13 +10,11 @@ import FCUUID
 
 struct ContentView: View {
     
+    @StateObject var userViewModel = UserViewModel()
+    
     var appData: AppData = .init()
     @State var selectebTabs: Tabs = .swipe
     @State var navigateToQR = false
-    
-    @State private var userID = FCUUID.uuidForDevice()
-    
-    @State private var userModel: UserModel?
     
     var body: some View {
         VStack(spacing: 0) {
@@ -26,30 +24,29 @@ struct ContentView: View {
             }
             
             else {
-                if let records = userModel?.records, !records.isEmpty {
+                
+                if userViewModel.user.isEmpty {
+                    LoginView()
+                } else {
                     switch selectebTabs {
                     case .swipe:
-                        MainView()
+                        MainView(userid: FCUUID.uuidForDevice())
                     case .profile:
                         LoginView()
                     }
                     
                     CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)
-                    
-                } else {
-                    LoginView()
                 }
             }
         }
         .environment(appData)
         .navigationDestination(isPresented: $navigateToQR) { 
-            InformationView()
+            //InformationView()
         }
         .onAppear {
             Task {
                 do {
-                    self.userModel = try await AirtableManager.getUser(userID: userID ?? "default")
-                    
+                    try await userViewModel.fetchUser(for: FCUUID.uuidForDevice())
                 } catch {
                     print("Error fetching user data: \(error)")
                 }

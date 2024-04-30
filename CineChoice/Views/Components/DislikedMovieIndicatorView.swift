@@ -12,9 +12,7 @@ struct DislikedMovieIndicatorView: View {
     @Binding var xOffset: CGFloat
     
     var body: some View {
-        VStack {
-            Spacer()
-            
+        ZStack {
             Image(systemName: "hand.thumbsdown.circle")
                 .resizable()
                 .frame(width: 130, height: 130)
@@ -22,7 +20,10 @@ struct DislikedMovieIndicatorView: View {
                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 .opacity(Double(xOffset / SizeConstant.screenXCutOff) * -1)
             
-            Spacer()
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(.ccRed, lineWidth: 10)
+                .frame(width: SizeConstant.cardWidth + 1, height: SizeConstant.cardHeight + 1)
+                .opacity(Double(xOffset / SizeConstant.screenXCutOff) * -1)
         }
     }
 }

@@ -10,10 +10,9 @@ import SwiftUI
 struct LikedMovieIndicatorView: View {
     
     @Binding var xOffset: CGFloat
-    //var isLikedCallback: (Bool) -> Void
     
     var body: some View {
-        VStack {
+        ZStack {
             Spacer()
             
             Image(systemName: "hand.thumbsup.circle")
@@ -23,11 +22,18 @@ struct LikedMovieIndicatorView: View {
                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 .opacity(Double(xOffset / SizeConstant.screenXCutOff))
             
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(.ccYellow, lineWidth: 10)
+                //.frame(width: 374, height: 588)
+                .frame(width: SizeConstant.cardWidth + 1, height: SizeConstant.cardHeight + 1)
+                .opacity(Double(xOffset / SizeConstant.screenXCutOff))
+            
+            
             Spacer()
         }
     }
 }
 
-//#Preview {
-//    LikedMovieIndicatorView(xOffset: .constant(200))
-//}
+#Preview {
+    LikedMovieIndicatorView(xOffset: .constant(200))
+}

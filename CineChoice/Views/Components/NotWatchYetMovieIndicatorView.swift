@@ -12,9 +12,7 @@ struct NotWatchYetMovieIndicatorView: View {
     @Binding var yOffset: CGFloat
     
     var body: some View {
-        VStack {
-            Spacer()
-            
+        ZStack {
             ZStack {
                 Image(systemName: "film.circle")
                     .resizable()
@@ -28,7 +26,10 @@ struct NotWatchYetMovieIndicatorView: View {
             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             .opacity(Double(yOffset / SizeConstant.screenYCutOff) * -1)
             
-            Spacer()
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(.ccOtherGray, lineWidth: 10)
+                .frame(width: SizeConstant.cardWidth + 1, height: SizeConstant.cardHeight + 1)
+                .opacity(Double(yOffset / SizeConstant.screenYCutOff) * -1)
         }
     }
 }
