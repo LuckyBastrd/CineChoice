@@ -1,5 +1,4 @@
 {
-  "originHash" : "26526f1c910d9dce21ef38c9226cbfca738e8511855e10276aea9dcd09ae7899",
   "pins" : [
     {
       "identity" : "fcuuid",
@@ -42,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/supabase-community/supabase-swift.git",
       "state" : {
-        "revision" : "036c03d4862bd93f4d93c88f9a365dc292abb74f",
-        "version" : "2.0.0"
+        "revision" : "98c9815c177f46ef85eefa9c4ce4f5e6ca0423ae",
+        "version" : "2.8.1"
       }
     },
     {
@@ -56,6 +55,15 @@
       }
     },
     {
+      "identity" : "swift-crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-crypto.git",
+      "state" : {
+        "revision" : "f0525da24dc3c6cbb2b6b338b65042bc91cbc4bb",
+        "version" : "3.3.0"
+      }
+    },
+    {
       "identity" : "uickeychainstore",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kishikawakatsumi/UICKeyChainStore",
@@ -65,5 +73,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }

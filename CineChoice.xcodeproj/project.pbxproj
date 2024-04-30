@@ -14,8 +14,6 @@
 		0584A7B32BDA480A00C7B67B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7B22BDA480A00C7B67B /* SplashView.swift */; };
 		0584A7B52BDA481700C7B67B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7B42BDA481700C7B67B /* LoginView.swift */; };
 		0584A7B72BDA482800C7B67B /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7B62BDA482800C7B67B /* AppData.swift */; };
-		0584A7BA2BDA485300C7B67B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A7B92BDA485300C7B67B /* Lottie */; };
-		0584A7BD2BDA485C00C7B67B /* FCUUID in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A7BC2BDA485C00C7B67B /* FCUUID */; };
 		0584A7C02BDA48B500C7B67B /* CineChoiceLogoAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0584A7BF2BDA48B500C7B67B /* CineChoiceLogoAnimation.json */; };
 		0584A7C22BDA4CD900C7B67B /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7C12BDA4CD900C7B67B /* InformationView.swift */; };
 		0584A7C42BDA4D4B00C7B67B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7C32BDA4D4B00C7B67B /* MainView.swift */; };
@@ -41,18 +39,26 @@
 		0584A82A2BDEAADF00C7B67B /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8292BDEAADF00C7B67B /* CustomTabBarView.swift */; };
 		0584A82E2BDF82E100C7B67B /* SwipeColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A82D2BDF82E100C7B67B /* SwipeColorConstant.swift */; };
 		0584A8302BDF934600C7B67B /* AirtableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A82F2BDF934600C7B67B /* AirtableManager.swift */; };
-		0584A8332BDFC6F800C7B67B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A8322BDFC6F800C7B67B /* Kingfisher */; };
 		0584A8352BDFF5EA00C7B67B /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8342BDFF5EA00C7B67B /* CommonModel.swift */; };
 		0584A8382BE00C6500C7B67B /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8372BE00C6500C7B67B /* SupabaseManager.swift */; };
-		0584A8482BE00EC500C7B67B /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A8472BE00EC500C7B67B /* Supabase */; };
-		0584A8582BE0105900C7B67B /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A8572BE0105900C7B67B /* Auth */; };
-		0584A85A2BE0105900C7B67B /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A8592BE0105900C7B67B /* Functions */; };
-		0584A85C2BE0105900C7B67B /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A85B2BE0105900C7B67B /* PostgREST */; };
-		0584A85E2BE0105900C7B67B /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A85D2BE0105900C7B67B /* Realtime */; };
-		0584A8602BE0105900C7B67B /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 0584A85F2BE0105900C7B67B /* Storage */; };
 		0584A8622BE018D000C7B67B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8612BE018D000C7B67B /* UserViewModel.swift */; };
 		0584A8642BE03BE700C7B67B /* InteractionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8632BE03BE700C7B67B /* InteractionViewModel.swift */; };
 		0584A8682BE0C7FC00C7B67B /* RemoveCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8672BE0C7FC00C7B67B /* RemoveCardView.swift */; };
+		769FC58B2BE0E0E600D149FB /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC58A2BE0E0E600D149FB /* Auth */; };
+		769FC58D2BE0E0E600D149FB /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC58C2BE0E0E600D149FB /* Functions */; };
+		769FC58F2BE0E0E600D149FB /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC58E2BE0E0E600D149FB /* PostgREST */; };
+		769FC5912BE0E0E600D149FB /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC5902BE0E0E600D149FB /* Realtime */; };
+		769FC5932BE0E0E600D149FB /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC5922BE0E0E600D149FB /* Storage */; };
+		769FC5962BE0E0F400D149FB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC5952BE0E0F400D149FB /* Kingfisher */; };
+		769FC5992BE0E10900D149FB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC5982BE0E10900D149FB /* Lottie */; };
+		769FC59C2BE0E11500D149FB /* FCUUID in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC59B2BE0E11500D149FB /* FCUUID */; };
+		769FC59E2BE0E12900D149FB /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC59D2BE0E12900D149FB /* Supabase */; };
+		769FC5A02BE0E19C00D149FB /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC59F2BE0E19C00D149FB /* QRView.swift */; };
+		769FC5A22BE0E1AF00D149FB /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5A12BE0E1AF00D149FB /* ScanView.swift */; };
+		769FC5A42BE0E1DA00D149FB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5A32BE0E1DA00D149FB /* CameraView.swift */; };
+		769FC5A62BE0E1F200D149FB /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5A52BE0E1F200D149FB /* QRCodeView.swift */; };
+		769FC5A92BE0E21800D149FB /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5A82BE0E21800D149FB /* CameraPermission.swift */; };
+		769FC5AB2BE0E23100D149FB /* QRScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5AA2BE0E23100D149FB /* QRScannerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +101,12 @@
 		0584A8612BE018D000C7B67B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		0584A8632BE03BE700C7B67B /* InteractionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionViewModel.swift; sourceTree = "<group>"; };
 		0584A8672BE0C7FC00C7B67B /* RemoveCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCardView.swift; sourceTree = "<group>"; };
+		769FC59F2BE0E19C00D149FB /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
+		769FC5A12BE0E1AF00D149FB /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		769FC5A32BE0E1DA00D149FB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		769FC5A52BE0E1F200D149FB /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		769FC5A82BE0E21800D149FB /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
+		769FC5AA2BE0E23100D149FB /* QRScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,15 +114,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0584A85A2BE0105900C7B67B /* Functions in Frameworks */,
-				0584A8482BE00EC500C7B67B /* Supabase in Frameworks */,
-				0584A85C2BE0105900C7B67B /* PostgREST in Frameworks */,
-				0584A85E2BE0105900C7B67B /* Realtime in Frameworks */,
-				0584A8332BDFC6F800C7B67B /* Kingfisher in Frameworks */,
-				0584A7BD2BDA485C00C7B67B /* FCUUID in Frameworks */,
-				0584A8602BE0105900C7B67B /* Storage in Frameworks */,
-				0584A8582BE0105900C7B67B /* Auth in Frameworks */,
-				0584A7BA2BDA485300C7B67B /* Lottie in Frameworks */,
+				769FC5962BE0E0F400D149FB /* Kingfisher in Frameworks */,
+				769FC5992BE0E10900D149FB /* Lottie in Frameworks */,
+				769FC58F2BE0E0E600D149FB /* PostgREST in Frameworks */,
+				769FC58D2BE0E0E600D149FB /* Functions in Frameworks */,
+				769FC58B2BE0E0E600D149FB /* Auth in Frameworks */,
+				769FC59E2BE0E12900D149FB /* Supabase in Frameworks */,
+				769FC5932BE0E0E600D149FB /* Storage in Frameworks */,
+				769FC59C2BE0E11500D149FB /* FCUUID in Frameworks */,
+				769FC5912BE0E0E600D149FB /* Realtime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +181,8 @@
 				0584A7B42BDA481700C7B67B /* LoginView.swift */,
 				0584A7C12BDA4CD900C7B67B /* InformationView.swift */,
 				0584A7C32BDA4D4B00C7B67B /* MainView.swift */,
+				769FC59F2BE0E19C00D149FB /* QRView.swift */,
+				769FC5A12BE0E1AF00D149FB /* ScanView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,6 +210,7 @@
 		0584A7C52BDA4D8200C7B67B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				769FC5A72BE0E20400D149FB /* QRModel */,
 				0584A7C62BDA4DB800C7B67B /* BlurBackgroundView.swift */,
 				0584A7C82BDA4F9E00C7B67B /* URLImageView.swift */,
 				0584A7CA2BDA613400C7B67B /* BlurView.swift */,
@@ -206,6 +221,8 @@
 				0584A7E02BDAA90700C7B67B /* CardStackView.swift */,
 				0584A8292BDEAADF00C7B67B /* CustomTabBarView.swift */,
 				0584A8672BE0C7FC00C7B67B /* RemoveCardView.swift */,
+				769FC5A32BE0E1DA00D149FB /* CameraView.swift */,
+				769FC5A52BE0E1F200D149FB /* QRCodeView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -274,6 +291,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		769FC5A72BE0E20400D149FB /* QRModel */ = {
+			isa = PBXGroup;
+			children = (
+				769FC5A82BE0E21800D149FB /* CameraPermission.swift */,
+				769FC5AA2BE0E23100D149FB /* QRScannerDelegate.swift */,
+			);
+			path = QRModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,15 +317,15 @@
 			);
 			name = CineChoice;
 			packageProductDependencies = (
-				0584A7B92BDA485300C7B67B /* Lottie */,
-				0584A7BC2BDA485C00C7B67B /* FCUUID */,
-				0584A8322BDFC6F800C7B67B /* Kingfisher */,
-				0584A8472BE00EC500C7B67B /* Supabase */,
-				0584A8572BE0105900C7B67B /* Auth */,
-				0584A8592BE0105900C7B67B /* Functions */,
-				0584A85B2BE0105900C7B67B /* PostgREST */,
-				0584A85D2BE0105900C7B67B /* Realtime */,
-				0584A85F2BE0105900C7B67B /* Storage */,
+				769FC58A2BE0E0E600D149FB /* Auth */,
+				769FC58C2BE0E0E600D149FB /* Functions */,
+				769FC58E2BE0E0E600D149FB /* PostgREST */,
+				769FC5902BE0E0E600D149FB /* Realtime */,
+				769FC5922BE0E0E600D149FB /* Storage */,
+				769FC5952BE0E0F400D149FB /* Kingfisher */,
+				769FC5982BE0E10900D149FB /* Lottie */,
+				769FC59B2BE0E11500D149FB /* FCUUID */,
+				769FC59D2BE0E12900D149FB /* Supabase */,
 			);
 			productName = CineChoice;
 			productReference = 0584A79F2BDA45D200C7B67B /* CineChoice.app */;
@@ -330,10 +356,10 @@
 			);
 			mainGroup = 0584A7962BDA45D200C7B67B;
 			packageReferences = (
-				0584A7B82BDA485300C7B67B /* XCRemoteSwiftPackageReference "lottie-spm" */,
-				0584A7BB2BDA485C00C7B67B /* XCRemoteSwiftPackageReference "FCUUID" */,
-				0584A8312BDFC6F800C7B67B /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				769FC5892BE0E0E600D149FB /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				769FC5942BE0E0F400D149FB /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				769FC5972BE0E10900D149FB /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				769FC59A2BE0E11500D149FB /* XCRemoteSwiftPackageReference "FCUUID" */,
 			);
 			productRefGroup = 0584A7A02BDA45D200C7B67B /* Products */;
 			projectDirPath = "";
@@ -364,17 +390,21 @@
 			files = (
 				0584A8682BE0C7FC00C7B67B /* RemoveCardView.swift in Sources */,
 				0584A7F82BDC0D2A00C7B67B /* Film+CloudKit.swift in Sources */,
+				769FC5AB2BE0E23100D149FB /* QRScannerDelegate.swift in Sources */,
 				0584A7A52BDA45D200C7B67B /* ContentView.swift in Sources */,
 				0584A8352BDFF5EA00C7B67B /* CommonModel.swift in Sources */,
 				0584A7DB2BDAA1D100C7B67B /* LikedMovieIndicatorView.swift in Sources */,
+				769FC5A22BE0E1AF00D149FB /* ScanView.swift in Sources */,
 				0584A8302BDF934600C7B67B /* AirtableManager.swift in Sources */,
 				0584A7DF2BDAA36300C7B67B /* NotWatchYetMovieIndicatorView.swift in Sources */,
 				0584A82E2BDF82E100C7B67B /* SwipeColorConstant.swift in Sources */,
 				0584A7FA2BDC251C00C7B67B /* CardModel.swift in Sources */,
+				769FC5A42BE0E1DA00D149FB /* CameraView.swift in Sources */,
 				0584A7C42BDA4D4B00C7B67B /* MainView.swift in Sources */,
 				0584A7C92BDA4F9E00C7B67B /* URLImageView.swift in Sources */,
 				0584A82A2BDEAADF00C7B67B /* CustomTabBarView.swift in Sources */,
 				0584A7A32BDA45D200C7B67B /* CineChoiceApp.swift in Sources */,
+				769FC5A02BE0E19C00D149FB /* QRView.swift in Sources */,
 				0584A7FC2BDC25C400C7B67B /* CardViewModel.swift in Sources */,
 				0584A7F02BDC09B000C7B67B /* FilmCKView.swift in Sources */,
 				0584A7C72BDA4DB800C7B67B /* BlurBackgroundView.swift in Sources */,
@@ -387,6 +417,7 @@
 				0584A7C22BDA4CD900C7B67B /* InformationView.swift in Sources */,
 				0584A8382BE00C6500C7B67B /* SupabaseManager.swift in Sources */,
 				0584A7CB2BDA613400C7B67B /* BlurView.swift in Sources */,
+				769FC5A62BE0E1F200D149FB /* QRCodeView.swift in Sources */,
 				0584A8642BE03BE700C7B67B /* InteractionViewModel.swift in Sources */,
 				0584A7F22BDC09D200C7B67B /* FilmViewModel.swift in Sources */,
 				0584A8622BE018D000C7B67B /* UserViewModel.swift in Sources */,
@@ -395,6 +426,7 @@
 				0584A7E92BDC043B00C7B67B /* UserModel.swift in Sources */,
 				0584A7ED2BDC06A200C7B67B /* InteractionModel.swift in Sources */,
 				0584A7B72BDA482800C7B67B /* AppData.swift in Sources */,
+				769FC5A92BE0E21800D149FB /* CameraPermission.swift in Sources */,
 				0584A8022BDD44DD00C7B67B /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,20 +563,23 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = AD6RKLU932;
+				DEVELOPMENT_TEAM = NRAJG6453M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cc.CineChoice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nano.CineChoice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -563,20 +598,23 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = AD6RKLU932;
+				DEVELOPMENT_TEAM = NRAJG6453M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cc.CineChoice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nano.CineChoice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -609,23 +647,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0584A7B82BDA485300C7B67B /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+		769FC5892BE0E0E600D149FB /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			repositoryURL = "https://github.com/supabase-community/supabase-swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.4.3;
+				minimumVersion = 2.5.1;
 			};
 		};
-		0584A7BB2BDA485C00C7B67B /* XCRemoteSwiftPackageReference "FCUUID" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/fabiocaccamo/FCUUID";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		0584A8312BDFC6F800C7B67B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		769FC5942BE0E0F400D149FB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -633,61 +663,69 @@
 				minimumVersion = 7.11.0;
 			};
 		};
-		0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+		769FC5972BE0E10900D149FB /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/supabase-community/supabase-swift.git";
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
 			requirement = {
-				kind = exactVersion;
-				version = 2.0.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+		769FC59A2BE0E11500D149FB /* XCRemoteSwiftPackageReference "FCUUID" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fabiocaccamo/FCUUID";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0584A7B92BDA485300C7B67B /* Lottie */ = {
+		769FC58A2BE0E0E600D149FB /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0584A7B82BDA485300C7B67B /* XCRemoteSwiftPackageReference "lottie-spm" */;
-			productName = Lottie;
-		};
-		0584A7BC2BDA485C00C7B67B /* FCUUID */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0584A7BB2BDA485C00C7B67B /* XCRemoteSwiftPackageReference "FCUUID" */;
-			productName = FCUUID;
-		};
-		0584A8322BDFC6F800C7B67B /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0584A8312BDFC6F800C7B67B /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		0584A8472BE00EC500C7B67B /* Supabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Supabase;
-		};
-		0584A8572BE0105900C7B67B /* Auth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			package = 769FC5892BE0E0E600D149FB /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Auth;
 		};
-		0584A8592BE0105900C7B67B /* Functions */ = {
+		769FC58C2BE0E0E600D149FB /* Functions */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			package = 769FC5892BE0E0E600D149FB /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Functions;
 		};
-		0584A85B2BE0105900C7B67B /* PostgREST */ = {
+		769FC58E2BE0E0E600D149FB /* PostgREST */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			package = 769FC5892BE0E0E600D149FB /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = PostgREST;
 		};
-		0584A85D2BE0105900C7B67B /* Realtime */ = {
+		769FC5902BE0E0E600D149FB /* Realtime */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			package = 769FC5892BE0E0E600D149FB /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Realtime;
 		};
-		0584A85F2BE0105900C7B67B /* Storage */ = {
+		769FC5922BE0E0E600D149FB /* Storage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0584A8452BE00EA100C7B67B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			package = 769FC5892BE0E0E600D149FB /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Storage;
+		};
+		769FC5952BE0E0F400D149FB /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 769FC5942BE0E0F400D149FB /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		769FC5982BE0E10900D149FB /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 769FC5972BE0E10900D149FB /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+		769FC59B2BE0E11500D149FB /* FCUUID */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 769FC59A2BE0E11500D149FB /* XCRemoteSwiftPackageReference "FCUUID" */;
+			productName = FCUUID;
+		};
+		769FC59D2BE0E12900D149FB /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 769FC5892BE0E0E600D149FB /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
