@@ -24,24 +24,35 @@ struct ContentView: View {
             }
             
             else {
-                
-                if userViewModel.user.isEmpty {
+                switch selectebTabs {
+                case .swipe:
+                    MainView(userid: FCUUID.uuidForDevice())
+                case .profile:
                     LoginView()
-                } else {
-                    switch selectebTabs {
-                    case .swipe:
-                        MainView(userid: FCUUID.uuidForDevice())
-                    case .profile:
-                        LoginView()
-                    }
-                    
-                    CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)
                 }
+                
+                CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)
             }
+            
+//            else {
+//                
+//                if userViewModel.user.isEmpty {
+//                    LoginView()
+//                } else {
+//                    switch selectebTabs {
+//                    case .swipe:
+//                        MainView(userid: FCUUID.uuidForDevice())
+//                    case .profile:
+//                        LoginView()
+//                    }
+//                    
+//                    CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)
+//                }
+//            }
         }
         .environment(appData)
         .navigationDestination(isPresented: $navigateToQR) { 
-            //InformationView()
+            QRView()
         }
         .onAppear {
             Task {

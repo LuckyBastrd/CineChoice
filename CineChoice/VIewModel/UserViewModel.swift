@@ -3,7 +3,6 @@
 //  CineChoice
 //
 //  Created by Lucky on 30/04/24.
-//
 
 import SwiftUI
 

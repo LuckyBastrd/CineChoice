@@ -29,16 +29,13 @@
 		0584A7E92BDC043B00C7B67B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7E82BDC043B00C7B67B /* UserModel.swift */; };
 		0584A7EB2BDC044300C7B67B /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7EA2BDC044300C7B67B /* FilmModel.swift */; };
 		0584A7ED2BDC06A200C7B67B /* InteractionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7EC2BDC06A200C7B67B /* InteractionModel.swift */; };
-		0584A7F02BDC09B000C7B67B /* FilmCKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7EF2BDC09B000C7B67B /* FilmCKView.swift */; };
 		0584A7F22BDC09D200C7B67B /* FilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7F12BDC09D200C7B67B /* FilmViewModel.swift */; };
-		0584A7F52BDC0CDB00C7B67B /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7F42BDC0CDB00C7B67B /* CloudKitManager.swift */; };
 		0584A7F82BDC0D2A00C7B67B /* Film+CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7F72BDC0D2A00C7B67B /* Film+CloudKit.swift */; };
 		0584A7FA2BDC251C00C7B67B /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7F92BDC251C00C7B67B /* CardModel.swift */; };
 		0584A7FC2BDC25C400C7B67B /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7FB2BDC25C400C7B67B /* CardViewModel.swift */; };
 		0584A8022BDD44DD00C7B67B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8012BDD44DD00C7B67B /* AudioPlayer.swift */; };
 		0584A82A2BDEAADF00C7B67B /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8292BDEAADF00C7B67B /* CustomTabBarView.swift */; };
 		0584A82E2BDF82E100C7B67B /* SwipeColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A82D2BDF82E100C7B67B /* SwipeColorConstant.swift */; };
-		0584A8302BDF934600C7B67B /* AirtableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A82F2BDF934600C7B67B /* AirtableManager.swift */; };
 		0584A8352BDFF5EA00C7B67B /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8342BDFF5EA00C7B67B /* CommonModel.swift */; };
 		0584A8382BE00C6500C7B67B /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8372BE00C6500C7B67B /* SupabaseManager.swift */; };
 		0584A8622BE018D000C7B67B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8612BE018D000C7B67B /* UserViewModel.swift */; };
@@ -86,16 +83,13 @@
 		0584A7E82BDC043B00C7B67B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0584A7EA2BDC044300C7B67B /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		0584A7EC2BDC06A200C7B67B /* InteractionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionModel.swift; sourceTree = "<group>"; };
-		0584A7EF2BDC09B000C7B67B /* FilmCKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCKView.swift; sourceTree = "<group>"; };
 		0584A7F12BDC09D200C7B67B /* FilmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModel.swift; sourceTree = "<group>"; };
-		0584A7F42BDC0CDB00C7B67B /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		0584A7F72BDC0D2A00C7B67B /* Film+CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Film+CloudKit.swift"; sourceTree = "<group>"; };
 		0584A7F92BDC251C00C7B67B /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		0584A7FB2BDC25C400C7B67B /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		0584A8012BDD44DD00C7B67B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		0584A8292BDEAADF00C7B67B /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		0584A82D2BDF82E100C7B67B /* SwipeColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeColorConstant.swift; sourceTree = "<group>"; };
-		0584A82F2BDF934600C7B67B /* AirtableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirtableManager.swift; sourceTree = "<group>"; };
 		0584A8342BDFF5EA00C7B67B /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
 		0584A8372BE00C6500C7B67B /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
 		0584A8612BE018D000C7B67B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -175,7 +169,6 @@
 		0584A7B02BDA460600C7B67B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0584A7EE2BDC098900C7B67B /* CKView */,
 				0584A7C52BDA4D8200C7B67B /* Components */,
 				0584A7B22BDA480A00C7B67B /* SplashView.swift */,
 				0584A7B42BDA481700C7B67B /* LoginView.swift */,
@@ -258,19 +251,9 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		0584A7EE2BDC098900C7B67B /* CKView */ = {
-			isa = PBXGroup;
-			children = (
-				0584A7EF2BDC09B000C7B67B /* FilmCKView.swift */,
-			);
-			path = CKView;
-			sourceTree = "<group>";
-		};
 		0584A7F32BDC0C9300C7B67B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0584A7F42BDC0CDB00C7B67B /* CloudKitManager.swift */,
-				0584A82F2BDF934600C7B67B /* AirtableManager.swift */,
 				0584A8372BE00C6500C7B67B /* SupabaseManager.swift */,
 			);
 			path = Services;
@@ -395,7 +378,6 @@
 				0584A8352BDFF5EA00C7B67B /* CommonModel.swift in Sources */,
 				0584A7DB2BDAA1D100C7B67B /* LikedMovieIndicatorView.swift in Sources */,
 				769FC5A22BE0E1AF00D149FB /* ScanView.swift in Sources */,
-				0584A8302BDF934600C7B67B /* AirtableManager.swift in Sources */,
 				0584A7DF2BDAA36300C7B67B /* NotWatchYetMovieIndicatorView.swift in Sources */,
 				0584A82E2BDF82E100C7B67B /* SwipeColorConstant.swift in Sources */,
 				0584A7FA2BDC251C00C7B67B /* CardModel.swift in Sources */,
@@ -406,12 +388,10 @@
 				0584A7A32BDA45D200C7B67B /* CineChoiceApp.swift in Sources */,
 				769FC5A02BE0E19C00D149FB /* QRView.swift in Sources */,
 				0584A7FC2BDC25C400C7B67B /* CardViewModel.swift in Sources */,
-				0584A7F02BDC09B000C7B67B /* FilmCKView.swift in Sources */,
 				0584A7C72BDA4DB800C7B67B /* BlurBackgroundView.swift in Sources */,
 				0584A7DD2BDAA2A400C7B67B /* DislikedMovieIndicatorView.swift in Sources */,
 				0584A7B52BDA481700C7B67B /* LoginView.swift in Sources */,
 				0584A7EB2BDC044300C7B67B /* FilmModel.swift in Sources */,
-				0584A7F52BDC0CDB00C7B67B /* CloudKitManager.swift in Sources */,
 				0584A7E12BDAA90700C7B67B /* CardStackView.swift in Sources */,
 				0584A7D52BDA8F1300C7B67B /* SizeConstant.swift in Sources */,
 				0584A7C22BDA4CD900C7B67B /* InformationView.swift in Sources */,
@@ -563,7 +543,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = NRAJG6453M;
+				DEVELOPMENT_TEAM = AD6RKLU932;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -579,7 +559,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nano.CineChoice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ccTeam.CineChoice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -598,7 +578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = NRAJG6453M;
+				DEVELOPMENT_TEAM = AD6RKLU932;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -614,7 +594,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nano.CineChoice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ccTeam.CineChoice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

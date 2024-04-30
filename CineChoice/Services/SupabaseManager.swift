@@ -15,7 +15,7 @@ class SupabaseManager {
     
     
     func fetchUser(for userid: String) async throws -> [UserModel] {
-        let response = try await supabase.from("user").select().equals("userID", value: userid).equals("shown", value: "false").execute()
+        let response = try await supabase.from("user").select().equals("userID", value: userid).execute()
         
         let data = response.data
         
