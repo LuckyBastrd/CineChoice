@@ -114,6 +114,7 @@
 
 import Foundation
 import Supabase
+import FCUUID
 
 class SupabaseManager: ObservableObject {
     
@@ -125,6 +126,36 @@ class SupabaseManager: ObservableObject {
     @Published var films: [FilmModel] = []
     @Published var cards: [CardModel] = []
     @Published var userInteractions: [InteractionModel] = []
+    
+    func createNewUser(completion: @escaping (Error?) -> Void, userId: String, imageData: Data){
+        Task{
+            do{
+                let fileName = "pp_"+userId+".png"
+                try await supabase.storage
+                    .from("userPictures")
+                    .upload(path: fileName, file: imageData, options: FileOptions(
+                        cacheControl: "3600",
+                        contentType: "image/png",
+                        upsert: true
+                      ))
+                
+                let signedURL = try await supabase.storage
+                  .from("userPictures")
+                  .createSignedURL(path: fileName, expiresIn: 360)
+                
+                let temp = UserModel(userID: userId, userPicture: signedURL.absoluteString, userAction: 0)
+                try await supabase
+                  .from("user")
+                  .insert(temp)
+                  .execute()
+                
+                completion(nil)
+                
+            }catch{
+                completion(error)
+            }
+        }
+    }
     
     // Function to check if data has been fetched previously
     func shouldFetchData() -> Bool {
@@ -143,7 +174,7 @@ class SupabaseManager: ObservableObject {
             Task {
                 do {
                     // Fetch user data
-                    let users = try await fetchUser(for: "1a4aa126000048f89c0e6d249f3249c2")
+                    let users = try await fetchUser(for: FCUUID.uuidForDevice())
 
                     // Fetch film data
                     let films = try await fetchFilms(for: "1a4aa126000048f89c0e6d249f3249c2")
@@ -174,8 +205,26 @@ class SupabaseManager: ObservableObject {
         }
     }
     
+    func updateUserInteractions(completion: @escaping (Error?) -> Void){
+        Task {
+            do {
+                // Fetch film data
+                let userInteractions = try await fetchUserInteractions(for: "1a4aa126000048f89c0e6d249f3249c2")
+                
+                DispatchQueue.main.async {
+                    self.userInteractions = userInteractions
+                }
+                
+                completion(nil)
+            } catch {
+                // Handle error
+                completion(error)
+            }
+        }
+    }
+    
     func fetchUser(for userid: String) async throws -> [UserModel] {
-        let response = try await supabase.from("user").select().equals("userID", value: "1a4aa126000048f89c0e6d249f3249c2").execute()
+        let response = try await supabase.from("user").select().equals("userID", value: userid).execute()
         
         let data = response.data
         

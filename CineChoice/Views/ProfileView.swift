@@ -69,13 +69,13 @@ struct ProfileView: View {
                     
                     VStack(spacing:gs){
                         HStack{
-                            Image(systemName: "popcorn.circle.fill")
+                            Image(systemName: "film.circle.fill")
                                 .resizable()
                                 .foregroundColor(.yellow)
                                 .scaledToFill()
                                 .frame(width: gs)
                             Spacer()
-                            Text("123")
+                            Text(String(supabaseManager.userInteractions.count))
                                 .font(.system(size: 25))
                                 .foregroundStyle(.white)
                         }

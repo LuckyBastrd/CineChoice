@@ -64,6 +64,7 @@
 		769FC5AB2BE0E23100D149FB /* QRScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5AA2BE0E23100D149FB /* QRScannerDelegate.swift */; };
 		F85DBB032BE27A8400C2ACD0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */; };
 		F85DBB052BE27AD800C2ACD0 /* FilmGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DBB042BE27AD800C2ACD0 /* FilmGridView.swift */; };
+		F85DBB072BE287FC00C2ACD0 /* FilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DBB062BE287FC00C2ACD0 /* FilmView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		769FC5AA2BE0E23100D149FB /* QRScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerDelegate.swift; sourceTree = "<group>"; };
 		F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F85DBB042BE27AD800C2ACD0 /* FilmGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmGridView.swift; sourceTree = "<group>"; };
+		F85DBB062BE287FC00C2ACD0 /* FilmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 				769FC5A12BE0E1AF00D149FB /* ScanView.swift */,
 				0584A8782BE158EC00C7B67B /* TestView.swift */,
 				F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */,
+				F85DBB062BE287FC00C2ACD0 /* FilmView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				0584A7A52BDA45D200C7B67B /* ContentView.swift in Sources */,
 				0584A7DB2BDAA1D100C7B67B /* LikedMovieIndicatorView.swift in Sources */,
 				769FC5A22BE0E1AF00D149FB /* ScanView.swift in Sources */,
+				F85DBB072BE287FC00C2ACD0 /* FilmView.swift in Sources */,
 				0584A7DF2BDAA36300C7B67B /* NotWatchYetMovieIndicatorView.swift in Sources */,
 				0584A82E2BDF82E100C7B67B /* SwipeColorConstant.swift in Sources */,
 				0584A7FA2BDC251C00C7B67B /* CardModel.swift in Sources */,

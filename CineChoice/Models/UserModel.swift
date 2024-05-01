@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct UserModel: Decodable {
+struct UserModel: Decodable, Encodable{
     let userID: String
     let userPicture: String
+    let userAction: Int
 }
