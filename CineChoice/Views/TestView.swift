@@ -14,19 +14,15 @@ struct TestView: View {
     
     var body: some View {
         VStack {
-            Text("LIKE: \(supabaseManager.filmRatings[0].filmLike)")
+            Text("LIKE: \(supabaseManager.filmRatings[0].averageLike)")
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.red)
             
-            Text("DISLIKE: \(supabaseManager.filmRatings[0].filmDislike)")
+            Text("DISLIKE: \(supabaseManager.filmRatings[0].averageDislike)")
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.red)
             
-            Text("UNSEEN: \(supabaseManager.filmRatings[0].filmUnseen)")
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.red)
-            
-            Text("TOTALRATING: \(supabaseManager.filmRatings[0].totalRating)")
+            Text("UNSEEN: \(supabaseManager.filmRatings[0].averageUnseen)")
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.red)
         }

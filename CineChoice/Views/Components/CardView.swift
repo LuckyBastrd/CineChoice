@@ -21,6 +21,7 @@ struct CardView: View {
     let card: CardModel
     let index: Int
     @Binding var currentIndex: Int 
+    @Binding var showInformation: Bool
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -88,6 +89,8 @@ private extension CardView {
                     unseen: 0)
                 
                 currentIndex -= 1
+                
+                showInformation = true
             }
         }
     }
@@ -107,6 +110,8 @@ private extension CardView {
                     unseen: 0)
                 
                 currentIndex -= 1
+                
+                showInformation = true
             }
         }
     }
@@ -125,6 +130,8 @@ private extension CardView {
                     unseen: 1)
                 
                 currentIndex -= 1
+                
+                showInformation = true
             }
         }
     }
