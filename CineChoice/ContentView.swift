@@ -27,6 +27,15 @@ struct ContentView: View {
                         MainView()
                     case .profile:
                         ProfileView()
+                            .onAppear() {
+                                supabaseManager.updateUserInteractions { error in
+                                    if let error = error {
+                                        print("Error updating user data: \(error)")
+                                    } else {
+                                        print("apdated user interaction successfuly")
+                                    }
+                                }
+                            }
                     }
                     
                     CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)
