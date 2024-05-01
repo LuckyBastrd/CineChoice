@@ -124,6 +124,7 @@ class SupabaseManager: ObservableObject {
     @Published var user: UserModel?
     @Published var films: [FilmModel] = []
     @Published var cards: [CardModel] = []
+    @Published var userInteractions: [InteractionModel] = []
     
     // Function to check if data has been fetched previously
     func shouldFetchData() -> Bool {
@@ -147,11 +148,15 @@ class SupabaseManager: ObservableObject {
                     // Fetch film data
                     let films = try await fetchFilms(for: "1a4aa126000048f89c0e6d249f3249c2")
                     
+                    // Fetch film data
+                    let userInteractions = try await fetchUserInteractions(for: "1a4aa126000048f89c0e6d249f3249c2")
+                    
                     _ = try await fetchCards()
                     
                     DispatchQueue.main.async {
                         self.user = users.first
                         self.films = films
+                        self.userInteractions = userInteractions
                     }
                     
                     // Data fetched successfully, mark as fetched
@@ -214,6 +219,35 @@ class SupabaseManager: ObservableObject {
         }
 
         return cards
+    }
+    
+    func fetchUserInteractions(for userid: String) async throws -> [InteractionModel] {
+        let query = """
+                    *,
+                    film:filmID (
+                        filmID,
+                        filmTitle,
+                        filmPoster,
+                        filmSoundtrack
+                    )
+                    """
+        
+        let response = try await supabase
+            .from("interaction").select(query).equals("userID", value: /*userid*/ "1a4aa126000048f89c0e6d249f3249c2").execute()
+        
+        let data = response.data
+        
+        let decoder = JSONDecoder()
+        
+        do {
+            let userInteractions = try decoder.decode([InteractionModel].self, from: data)
+            
+            print(userInteractions)
+            
+            return userInteractions
+        } catch {
+            throw error
+        }
     }
 }
 

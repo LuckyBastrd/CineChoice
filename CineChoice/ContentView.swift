@@ -28,7 +28,7 @@ struct ContentView: View {
                     case .swipe:
                         MainView()
                     case .profile:
-                        TestView()
+                        ProfileView()
                     }
                     
                     CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)

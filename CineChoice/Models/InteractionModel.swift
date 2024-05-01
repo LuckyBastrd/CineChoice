@@ -12,7 +12,6 @@ struct InteractionModel: Decodable {
     let userID: String
     let filmID: Int
     let action: String
-    let shown: Bool
     
     let film: Film
 
