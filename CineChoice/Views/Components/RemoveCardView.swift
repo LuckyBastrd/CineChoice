@@ -1,23 +1,23 @@
+////
+////  RemoveCardView.swift
+////  CineChoice
+////
+////  Created by Lucky on 30/04/24.
+////
 //
-//  RemoveCardView.swift
-//  CineChoice
+//import Foundation
+//import SwiftUI
 //
-//  Created by Lucky on 30/04/24.
-//
-
-import Foundation
-import SwiftUI
-
-struct RemoveCardView: View {
-    
-    @ObservedObject var cardViewModel = CardViewModel()
-    
-    let card: CardModel
-    
-    var body: some View {
-        VStack {
-            //cardViewModel.removeCard(card)
-        }
-    }
-    
-}
+//struct RemoveCardView: View {
+//    
+//    @ObservedObject var cardViewModel = CardViewModel()
+//    
+//    let card: CardModel
+//    
+//    var body: some View {
+//        VStack {
+//            //cardViewModel.removeCard(card)
+//        }
+//    }
+//    
+//}

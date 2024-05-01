@@ -5,16 +5,7 @@
 //  Created by Lucky on 26/04/24.
 //
 
-import CloudKit
-
-//struct InteractionModel: Decodable {
-//    let interactionID: Int
-//    let userID: String
-//    let filmID: [FilmModel]
-//    let action: String
-//    let shown: Bool
-//}
-
+import Foundation
 
 struct InteractionModel: Decodable {
     let interactionID: Int

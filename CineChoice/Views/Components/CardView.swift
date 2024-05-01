@@ -11,15 +11,13 @@ import CloudKit
 
 struct CardView: View {
     
-    //@ObservedObject var filmViewModel = FilmViewModel()
-    @ObservedObject var cardViewModel = CardViewModel()
+    @EnvironmentObject var supabaseManager: SupabaseManager
     @State private var xOffset: CGFloat = 0
     @State private var yOffset: CGFloat = 0
     @State private var degrees: Double = 0
     @State private var isLoadingImage = true
     
     let cardCount: Int
-    //let film: FilmModel
     let card: CardModel
     let index: Int
     @Binding var currentIndex: Int 
@@ -27,7 +25,7 @@ struct CardView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
-                ZStack {          
+                ZStack {                         
                     KFImage(URL(string: card.film.filmPoster))
                         .resizable()
                         .scaledToFill()
@@ -58,14 +56,7 @@ struct CardView: View {
                 })
         )
         .onAppear {  
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
-                if let soundtrackURL = URL(string: card.film.filmSoundtrack) {
-                    AudioPlayer.playMusic(url: soundtrackURL)
-                    currentIndex = cardCount
-                } else {
-                    print("Invalid soundtrack URL")
-                }
-            }
+            currentIndex = cardCount
         }
     }
 }
@@ -87,8 +78,14 @@ private extension CardView {
             degrees = 12
 
         } completion: {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                cardViewModel.removeCard(card)
+            DispatchQueue.main.async {
+                UpdateManager.shared.updateCard(
+                    card, 
+                    from: supabaseManager,
+                    action: "like",
+                    like: 1,
+                    dislike: 0,
+                    unseen: 0)
                 
                 currentIndex -= 1
             }
@@ -100,8 +97,14 @@ private extension CardView {
             xOffset = -500
             degrees = -12
         } completion: {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                cardViewModel.removeCard(card)
+            DispatchQueue.main.async {
+                UpdateManager.shared.updateCard(
+                    card, 
+                    from: supabaseManager, 
+                    action: "dislike",
+                    like: 0,
+                    dislike: 1,
+                    unseen: 0)
                 
                 currentIndex -= 1
             }
@@ -112,8 +115,14 @@ private extension CardView {
         withAnimation { 
             yOffset = -1000
         } completion: {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                cardViewModel.removeCard(card)
+            DispatchQueue.main.async {
+                UpdateManager.shared.updateCard(
+                    card, 
+                    from: supabaseManager, 
+                    action: "unseen",
+                    like: 0,
+                    dislike: 0,
+                    unseen: 1)
                 
                 currentIndex -= 1
             }
@@ -144,16 +153,13 @@ private extension CardView {
         }
         
         if width >= SizeConstant.screenXCutOff {
-            print("RIGHT")
             swipeRight()
         } else if width <= -SizeConstant.screenXCutOff {
-            print("LEFT")
             swipeLeft()
         } else if height >= SizeConstant.screenYCutOff {
             xReturnToCentre()
             yReturnToCentre()
         } else {
-            print("UP")
             swipeUp()
         }
     }

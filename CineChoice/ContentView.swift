@@ -10,57 +10,45 @@ import FCUUID
 
 struct ContentView: View {
     
-    @StateObject var userViewModel = UserViewModel()
+    @EnvironmentObject var supabaseManager: SupabaseManager
+    //@StateObject var userViewModel = UserViewModel()
     
-    var appData: AppData = .init()
+    //var appData: AppData = .init()
     @State var selectebTabs: Tabs = .swipe
     @State var navigateToQR = false
     
     var body: some View {
-        VStack(spacing: 0) {
-            
-            if !appData.isSplashFinished {
-                SplashView()
-            }
-            
-            else {
-                switch selectebTabs {
-                case .swipe:
-                    MainView(userid: FCUUID.uuidForDevice())
-                case .profile:
+        ZStack {
+            VStack(spacing: 0) {
+                if supabaseManager.user == nil {
                     LoginView()
+                } else {
+                    
+                    switch selectebTabs {
+                    case .swipe:
+                        MainView()
+                    case .profile:
+                        TestView()
+                    }
+                    
+                    CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)
                 }
-                
-                CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)
             }
-            
-//            else {
-//                
-//                if userViewModel.user.isEmpty {
-//                    LoginView()
-//                } else {
-//                    switch selectebTabs {
-//                    case .swipe:
-//                        MainView(userid: FCUUID.uuidForDevice())
-//                    case .profile:
-//                        LoginView()
-//                    }
-//                    
-//                    CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)
-//                }
+//            .navigationDestination(isPresented: $navigateToQR) { 
+//                QRView()
 //            }
-        }
-        .environment(appData)
-        .navigationDestination(isPresented: $navigateToQR) { 
-            QRView()
-        }
-        .onAppear {
-            Task {
-                do {
-                    try await userViewModel.fetchUser(for: FCUUID.uuidForDevice())
-                } catch {
-                    print("Error fetching user data: \(error)")
-                }
+            
+            if navigateToQR {
+                Color.black.opacity(0.5)
+                    .edgesIgnoringSafeArea(.all)
+                
+                QRView()
+                    .transition(.move(edge: .bottom))
+                    .animation(.easeInOut(duration: 0.5))
+//                withAnimation(.easeInOut(duration: 20.0)) {
+//                    QRView()
+//                        .transition(.move(edge: .bottom))
+//                }
             }
         }
     }

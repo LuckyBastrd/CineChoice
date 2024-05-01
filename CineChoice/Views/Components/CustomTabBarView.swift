@@ -34,10 +34,15 @@ struct CustomTabBarView: View {
                         }
                         
                         VStack {
-                            Image(.ccIconLogo) 
+                            Image(.ccIconLogo)
+//                            Image(systemName: "house.fill") 
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(width: 30, height: 30)
                         }
                         .frame(width: geo.size.width, height: geo.size.height)
                     }
+                    //.tint(Color("ccGray"))
                 }
                 
                 Button { 
@@ -72,7 +77,7 @@ struct CustomTabBarView: View {
                             Image(systemName: "person.fill") 
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 30, height: 30)
+                                .frame(width: 25, height: 25)
                         }
                         .frame(width: geo.size.width, height: geo.size.height)
                     }
@@ -80,7 +85,7 @@ struct CustomTabBarView: View {
                 .tint(Color("ccGray"))
                 
             }
-            .frame(height: 55)
+            .frame(height: 50)
             .background(.ccYellow)
         }
     }

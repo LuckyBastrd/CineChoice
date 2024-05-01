@@ -10,6 +10,7 @@ import SwiftData
 import FCUUID
 
 struct QRView: View {
+    
     var body: some View{
         ZStack{
             NavigationStack{
@@ -20,9 +21,13 @@ struct QRView: View {
                     
                     VStack{
                         HStack{
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.white)
-                                .font(.title2)
+                            Button(action: {
+                                
+                            }) {
+                                Image(systemName: "xmark")
+                                    .foregroundColor(.white)
+                                    .font(.title2)
+                            }
                             Spacer()
                             Image(systemName: "square.and.arrow.up")
                                 .foregroundColor(.white)
@@ -62,7 +67,9 @@ struct QRView: View {
                 }
             }
         }
-        
+        .onAppear{
+            AudioPlayer.stopMusic()
+        }
     }
 }
 

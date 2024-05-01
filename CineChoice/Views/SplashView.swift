@@ -28,7 +28,7 @@ struct SplashView: View {
                             appData.isSplashFinished = progress != 0 && completed
                         }
                         .task {
-                            try? await Task.sleep(for: .seconds(0.5))
+                            try? await Task.sleep(for: .seconds(1.3))
                             progress = 0.58
                         }
                     } 

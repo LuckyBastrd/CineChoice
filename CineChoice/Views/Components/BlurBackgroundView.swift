@@ -9,18 +9,17 @@ import SwiftUI
 import Kingfisher
 
 struct BlurBackgroundView: View {
+    
     let card: CardModel
     
     var body: some View {
         VStack {
             ZStack {
-                GeometryReader { proxy in
-                    let frame = proxy.frame(in: .global)
-                    
+                GeometryReader { geo in
                     KFImage(URL(string: card.film.filmPoster))
                         .resizable()
                         .scaledToFill()
-                
+                        .frame(width: geo.size.width, height: geo.size.height)
                 }
                 
                 GeometryReader { proxy in
