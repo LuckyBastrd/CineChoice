@@ -59,6 +59,7 @@
 		769FC5A62BE0E1F200D149FB /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5A52BE0E1F200D149FB /* QRCodeView.swift */; };
 		769FC5A92BE0E21800D149FB /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5A82BE0E21800D149FB /* CameraPermission.swift */; };
 		769FC5AB2BE0E23100D149FB /* QRScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5AA2BE0E23100D149FB /* QRScannerDelegate.swift */; };
+		76BD4EDF2BE2AEDF00DAB713 /* CompatibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD4EDE2BE2AEDF00DAB713 /* CompatibilityView.swift */; };
 		F85DBB032BE27A8400C2ACD0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */; };
 		F85DBB052BE27AD800C2ACD0 /* FilmGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DBB042BE27AD800C2ACD0 /* FilmGridView.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +110,7 @@
 		769FC5A52BE0E1F200D149FB /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		769FC5A82BE0E21800D149FB /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
 		769FC5AA2BE0E23100D149FB /* QRScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerDelegate.swift; sourceTree = "<group>"; };
+		76BD4EDE2BE2AEDF00DAB713 /* CompatibilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityView.swift; sourceTree = "<group>"; };
 		F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F85DBB042BE27AD800C2ACD0 /* FilmGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +191,7 @@
 				769FC5A12BE0E1AF00D149FB /* ScanView.swift */,
 				0584A8782BE158EC00C7B67B /* TestView.swift */,
 				F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */,
+				76BD4EDE2BE2AEDF00DAB713 /* CompatibilityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				0584A7C22BDA4CD900C7B67B /* InformationView.swift in Sources */,
 				0584A8382BE00C6500C7B67B /* SupabaseManager.swift in Sources */,
 				0584A7CB2BDA613400C7B67B /* BlurView.swift in Sources */,
+				76BD4EDF2BE2AEDF00DAB713 /* CompatibilityView.swift in Sources */,
 				769FC5A62BE0E1F200D149FB /* QRCodeView.swift in Sources */,
 				0584A7B32BDA480A00C7B67B /* SplashView.swift in Sources */,
 				0584A7D12BDA8AF000C7B67B /* CardView.swift in Sources */,
@@ -571,7 +575,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = 3F3KZHGXN6;
+				DEVELOPMENT_TEAM = NRAJG6453M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -606,7 +610,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = 3F3KZHGXN6;
+				DEVELOPMENT_TEAM = NRAJG6453M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";

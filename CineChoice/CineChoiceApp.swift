@@ -25,7 +25,7 @@ struct CineChoiceApp: App {
                 if !appData.isSplashFinished {
                     SplashView()
                 } else {
-                    ContentView()
+                    QRView()
                 }
             }
             .onAppear {

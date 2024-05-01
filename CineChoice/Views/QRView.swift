@@ -8,8 +8,12 @@
 import SwiftUI
 import SwiftData
 import FCUUID
+import Kingfisher
+import Supabase
 
 struct QRView: View {
+    
+    @EnvironmentObject var supabaseManager: SupabaseManager
     
     var body: some View{
         ZStack{
@@ -36,16 +40,23 @@ struct QRView: View {
                         .padding(.horizontal)
                         Spacer()
                         ZStack{
+                            
                             RoundedRectangle(cornerRadius: 20)
                                 .foregroundColor(.yellow)
                                 .frame(width: 310, height: 310)
                             //profile picture
-                            RoundedRectangle(cornerRadius: 17)
-                                .foregroundColor(.red)
-                                .frame(width: 80, height: 80)
-                                .padding(EdgeInsets(top: -210, leading: 0, bottom: 0, trailing: 0))
+//                            KFImage(URL(string: (supabaseManager.user?.userPicture)!))
+//                                                    .resizable()
+//                                                    .scaledToFill()
+//                                                    .frame(width: 80,height: 80)
+//                                                    .clipShape(RoundedRectangle(cornerRadius: 17))
+//                                                    .padding(EdgeInsets(top: -210, leading: 0, bottom: 0, trailing: 0))
+//                            RoundedRectangle(cornerRadius: 17)
+//                                .foregroundColor(.red)
+//                                .frame(width: 80, height: 80)
+//                                .padding(EdgeInsets(top: -210, leading: 0, bottom: 0, trailing: 0))
                             //qr
-                            QRCodeView(deviceId: "\(String(describing: FCUUID.uuidForDevice()))")
+                            QRCodeView(deviceId: FCUUID.uuidForDevice())
                         }
                         Spacer()
                         HStack{
