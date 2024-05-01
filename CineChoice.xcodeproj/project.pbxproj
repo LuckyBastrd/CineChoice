@@ -62,6 +62,8 @@
 		769FC5A62BE0E1F200D149FB /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5A52BE0E1F200D149FB /* QRCodeView.swift */; };
 		769FC5A92BE0E21800D149FB /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5A82BE0E21800D149FB /* CameraPermission.swift */; };
 		769FC5AB2BE0E23100D149FB /* QRScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769FC5AA2BE0E23100D149FB /* QRScannerDelegate.swift */; };
+		F85DBB032BE27A8400C2ACD0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */; };
+		F85DBB052BE27AD800C2ACD0 /* FilmGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DBB042BE27AD800C2ACD0 /* FilmGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +115,8 @@
 		769FC5A52BE0E1F200D149FB /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		769FC5A82BE0E21800D149FB /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
 		769FC5AA2BE0E23100D149FB /* QRScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerDelegate.swift; sourceTree = "<group>"; };
+		F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F85DBB042BE27AD800C2ACD0 /* FilmGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,7 @@
 				769FC59F2BE0E19C00D149FB /* QRView.swift */,
 				769FC5A12BE0E1AF00D149FB /* ScanView.swift */,
 				0584A8782BE158EC00C7B67B /* TestView.swift */,
+				F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				0584A8672BE0C7FC00C7B67B /* RemoveCardView.swift */,
 				769FC5A32BE0E1DA00D149FB /* CameraView.swift */,
 				769FC5A52BE0E1F200D149FB /* QRCodeView.swift */,
+				F85DBB042BE27AD800C2ACD0 /* FilmGridView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				0584A8772BE1462400C7B67B /* LikeModel.swift in Sources */,
 				0584A7FC2BDC25C400C7B67B /* CardViewModel.swift in Sources */,
 				0584A8842BE272F200C7B67B /* EmptyCardView.swift in Sources */,
+				F85DBB032BE27A8400C2ACD0 /* ProfileView.swift in Sources */,
 				0584A7C72BDA4DB800C7B67B /* BlurBackgroundView.swift in Sources */,
 				0584A7DD2BDAA2A400C7B67B /* DislikedMovieIndicatorView.swift in Sources */,
 				0584A7B52BDA481700C7B67B /* LoginView.swift in Sources */,
@@ -433,6 +440,7 @@
 				0584A8622BE018D000C7B67B /* UserViewModel.swift in Sources */,
 				0584A7B32BDA480A00C7B67B /* SplashView.swift in Sources */,
 				0584A7D12BDA8AF000C7B67B /* CardView.swift in Sources */,
+				F85DBB052BE27AD800C2ACD0 /* FilmGridView.swift in Sources */,
 				0584A7E92BDC043B00C7B67B /* UserModel.swift in Sources */,
 				0584A7ED2BDC06A200C7B67B /* InteractionModel.swift in Sources */,
 				0584A8792BE158EC00C7B67B /* TestView.swift in Sources */,
@@ -575,7 +583,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = AD6RKLU932;
+				DEVELOPMENT_TEAM = 3F3KZHGXN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -610,7 +618,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = AD6RKLU932;
+				DEVELOPMENT_TEAM = 3F3KZHGXN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
