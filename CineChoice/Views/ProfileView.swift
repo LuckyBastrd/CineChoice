@@ -123,6 +123,9 @@ struct ProfileView: View {
                 }
             }
             .frame(minHeight: 700)
+            .onAppear{
+                AudioPlayer.stopMusic()
+            }
         }
         .background(Color("CCGray1"))
 //        .onAppear {

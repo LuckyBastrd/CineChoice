@@ -14,17 +14,26 @@ struct TestView: View {
     
     var body: some View {
         VStack {
-            if let user = supabaseManager.user {
-                KFImage(URL(string: user.userPicture))
-                    .resizable()
-                    .scaledToFill()
-            }
-            // Additional UI components using data from SupabaseManager
+            Text("LIKE: \(supabaseManager.filmRatings[0].filmLike)")
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.red)
+            
+            Text("DISLIKE: \(supabaseManager.filmRatings[0].filmDislike)")
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.red)
+            
+            Text("UNSEEN: \(supabaseManager.filmRatings[0].filmUnseen)")
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.red)
+            
+            Text("TOTALRATING: \(supabaseManager.filmRatings[0].totalRating)")
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.red)
         }
         .frame(width: 300, height: 300)
-        .onAppear{
-            AudioPlayer.stopMusic()
-        }
+//        .onAppear{
+//            AudioPlayer.stopMusic()
+//        }
     }
 }
 

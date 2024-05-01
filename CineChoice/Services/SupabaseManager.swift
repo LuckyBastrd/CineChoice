@@ -5,113 +5,6 @@
 //  Created by Lucky on 30/04/24.
 //
 
-//import Foundation
-//import Supabase
-//
-//class SupabaseManager {
-//    
-//    static let shared = SupabaseManager()
-//    let supabase = SupabaseClient(supabaseURL: URL(string: "https://shucboqluxegybsrzyfz.supabase.co")!, supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNodWNib3FsdXhlZ3lic3J6eWZ6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNDM4MjEwOCwiZXhwIjoyMDI5OTU4MTA4fQ.PE-zDVm6PhmWvhmXdNa0PGCy9V-I7p9Dv70aJCIuqQM")
-//    
-//    
-//    func fetchUser(for userid: String) async throws -> [UserModel] {
-//        let response = try await supabase.from("user").select().equals("userID", value: userid).execute()
-//        
-//        let data = response.data
-//        
-//        let decoder = JSONDecoder()
-//        
-//        do {
-//            let user = try decoder.decode([UserModel].self, from: data)
-//            
-//            return user
-//        } catch {
-//            throw error
-//        }
-//    }
-//    
-//    func fetchFilms() async throws -> [FilmModel] {
-//        let response = try await supabase.from("film").select().execute()
-//        
-//        let data = response.data
-//        
-//        let decoder = JSONDecoder()
-//        
-//        do {
-//            let films = try decoder.decode([FilmModel].self, from: data)
-//            
-//            return films
-//        } catch {
-//            throw error
-//        }
-//    }
-//    
-//    func fetchUserInteractions(for userid: String) async throws -> [InteractionModel] {
-//        let query = """
-//                    *,
-//                    film:filmID (
-//                        filmID,
-//                        filmTitle,
-//                        filmPoster,
-//                        filmSoundtrack,
-//                        like,
-//                        dislike,
-//                        unseen
-//                    )
-//                    """
-//        
-//        let response = try await supabase.from("interaction").select(query).equals("userID", value: userid).execute()
-//        
-//        let data = response.data
-//        
-//        let decoder = JSONDecoder()
-//        
-//        do {
-//            let userInteractions = try decoder.decode([InteractionModel].self, from: data)
-//            
-//            print(userInteractions)
-//            
-//            return userInteractions
-//        } catch {
-//            throw error
-//        }
-//    }
-//    
-////    func isFilmIDAlreadyPresent(for userid: String, filmid: Int) async throws -> Bool {
-////        let query = """
-////                    *,
-////                    film:filmID (
-////                        filmID,
-////                        filmTitle,
-////                        filmPoster,
-////                        filmSoundtrack,
-////                        like,
-////                        dislike,
-////                        unseen
-////                    )
-////                    """
-////        
-////        let response = try await supabase.database.from("interaction").select(query).equals("userID", value: userid).equals("filmID", value: String(filmid)).execute()
-////        
-////        let data = response.data
-////        
-////        let decoder = JSONDecoder()
-////        
-////        do {
-////            let userInteractions = try decoder.decode([InteractionModel].self, from: data)
-////            
-////            guard let data = response.data, let count = data.first?["count"] as? Int else {
-////                throw SupabaseError.dataError("No data returned")
-////            }
-////            
-////            return count > 0
-////        } catch {
-////            throw error
-////        }
-////    }
-//}
-
-
 import Foundation
 import Supabase
 
@@ -119,12 +12,13 @@ class SupabaseManager: ObservableObject {
     
     static let shared = SupabaseManager()
     
-    let supabase = SupabaseConfiguration.supabase
+    let supabaseClient = SupabaseConfiguration.supabaseClient
     
     @Published var user: UserModel?
     @Published var films: [FilmModel] = []
     @Published var cards: [CardModel] = []
     @Published var userInteractions: [InteractionModel] = []
+    @Published var filmRatings: [FilmRatingModel] = []
     
     // Function to check if data has been fetched previously
     func shouldFetchData() -> Bool {
@@ -136,46 +30,120 @@ class SupabaseManager: ObservableObject {
         UserDefaults.standard.set(true, forKey: "dataFetched")
     }
     
-    // Function to fetch initial data asynchronously
-    func fetchInitialData(completion: @escaping (Error?) -> Void) {
+    func fetchInitialDataAndSubscribe(completion: @escaping (Error?) -> Void) {
         print("should ? = \(shouldFetchData())")
         if shouldFetchData() {
             Task {
                 do {
-                    // Fetch user data
-                    let users = try await fetchUser(for: "1a4aa126000048f89c0e6d249f3249c2")
+                    // Fetch initial data
+                    fetchInitialData(completion: { error in
+                        if let error = error {
+                            print("Error fetching initial data: \(error)")
+                        } else {
+                            print("Initial data fetched successfully.")
+                        }
+                    })
 
-                    // Fetch film data
-                    let films = try await fetchFilms(for: "1a4aa126000048f89c0e6d249f3249c2")
+                    // Subscribe to realtime changes
+                    try await subscribeToRealtimeTable(tableName: "interaction")
                     
-                    // Fetch film data
-                    let userInteractions = try await fetchUserInteractions(for: "1a4aa126000048f89c0e6d249f3249c2")
-                    
-                    _ = try await fetchCards()
-                    
-                    DispatchQueue.main.async {
-                        self.user = users.first
-                        self.films = films
-                        self.userInteractions = userInteractions
-                    }
-                    
-                    // Data fetched successfully, mark as fetched
-                    markDataAsFetched()
-                    
-                    completion(nil)
+                    try await subscribeToRealtimeTable(tableName: "filmrating")
                 } catch {
-                    // Handle error
-                    completion(error)
+                    print("Error fetching initial data and subscribing to realtime changes: \(error)")
                 }
             }
         } else {
             // Data already fetched, call completion with no error
             completion(nil)
         }
+
     }
     
+    // Function to fetch initial data asynchronously
+    func fetchInitialData(completion: @escaping (Error?) -> Void) {
+        Task {
+            do {
+                // Fetch user data
+                let users = try await fetchUser(for: "1a4aa126000048f89c0e6d249f3249c2")
+
+                // Fetch film data
+                let films = try await fetchFilms(for: "1a4aa126000048f89c0e6d249f3249c2")
+                
+                // Fetch film data
+                let userInteractions = try await fetchUserInteractions(for: "1a4aa126000048f89c0e6d249f3249c2")
+                
+                _ = try await fetchCards()
+                
+                let filmRatings = try await fetchFilmRatings()
+                
+                DispatchQueue.main.async {
+                    self.user = users.first
+                    self.films = films
+                    self.userInteractions = userInteractions
+                    self.filmRatings = filmRatings
+                }
+                
+                // Data fetched successfully, mark as fetched
+                markDataAsFetched()
+                
+                completion(nil)
+            } catch {
+                // Handle error
+                completion(error)
+            }
+        }
+    }
+    
+    
+    
+//    func fetchInitialData(completion: @escaping (Error?) -> Void) {
+//        print("should ? = \(shouldFetchData())")
+//        if shouldFetchData() {
+//            Task {
+//                do {
+//                    // Fetch user data
+//                    let users = try await fetchUser(for: "1a4aa126000048f89c0e6d249f3249c2")
+//
+//                    // Fetch film data
+//                    let films = try await fetchFilms(for: "1a4aa126000048f89c0e6d249f3249c2")
+//                    
+//                    // Fetch film data
+//                    let userInteractions = try await fetchUserInteractions(for: "1a4aa126000048f89c0e6d249f3249c2")
+//                    
+//                    _ = try await fetchCards()
+//                    
+////                    do {
+////                        // Call the function to subscribe to realtime changes in the filmrating table
+////                        try await subscribeToRealtimeTable()
+////                        print("Subscribed to realtime changes successfully.")
+////                    } catch {
+////                        print("Error subscribing to realtime changes: \(error)")
+////                    }
+//
+//                    
+//                    DispatchQueue.main.async {
+//                        self.user = users.first
+//                        self.films = films
+//                        self.userInteractions = userInteractions
+//                    }
+//                    
+//                    // Data fetched successfully, mark as fetched
+//                    markDataAsFetched()
+//                    
+//                    completion(nil)
+//                } catch {
+//                    // Handle error
+//                    completion(error)
+//                }
+//            }
+//        } else {
+//            // Data already fetched, call completion with no error
+//            completion(nil)
+//        }
+//    }
+    
     func fetchUser(for userid: String) async throws -> [UserModel] {
-        let response = try await supabase.from("user").select().equals("userID", value: "1a4aa126000048f89c0e6d249f3249c2").execute()
+        let response = try await supabaseClient.from("user").select().equals("userID", value: "1a4aa126000048f89c0e6d249f3249c2").execute()
         
         let data = response.data
         
@@ -192,7 +160,7 @@ class SupabaseManager: ObservableObject {
     
     func fetchFilms(for userid: String) async throws -> [FilmModel] {
         
-        let response = try await supabase.rpc("getfilmsforuser", params: ["userid": userid]).order("filmID", ascending: false).execute()
+        let response = try await supabaseClient.rpc("getfilmsforuser", params: ["userid": userid]).order("filmID", ascending: false).execute()
         
         let data = response.data
         
@@ -222,33 +190,102 @@ class SupabaseManager: ObservableObject {
     }
     
     func fetchUserInteractions(for userid: String) async throws -> [InteractionModel] {
-        let query = """
-                    *,
-                    film:filmID (
-                        filmID,
-                        filmTitle,
-                        filmPoster,
-                        filmSoundtrack
-                    )
-                    """
         
-        let response = try await supabase
-            .from("interaction").select(query).equals("userID", value: /*userid*/ "1a4aa126000048f89c0e6d249f3249c2").execute()
+        let response = try await supabaseClient.rpc("getinteractionwithfilm", params: ["interactionuserid": userid]).execute()
         
         let data = response.data
         
         let decoder = JSONDecoder()
         
         do {
-            let userInteractions = try decoder.decode([InteractionModel].self, from: data)
+            let interactions = try decoder.decode([InteractionModel].self, from: data)
             
-            print(userInteractions)
-            
-            return userInteractions
+            return interactions
         } catch {
             throw error
         }
     }
+    
+    func subscribeToRealtimeTable(tableName: String) async throws {
+        let myChannel = await supabaseClient.channel("\(tableName)RT")
+
+        let changes = await myChannel.postgresChange(AnyAction.self, schema: "public", table: tableName)
+
+        await myChannel.subscribe()
+
+        for await change in changes {
+            switch change {
+            case .insert:
+                if case .insert(_) = change {
+                    // Handle insert action
+                    try await updateTableData(tableName: tableName)
+                }
+            case .update:
+                if case .update(_) = change {
+                    // Handle update action
+                    try await updateTableData(tableName: tableName)
+                }
+            case .delete:
+                if case .delete(_) = change {
+                    // Handle delete action
+                    try await updateTableData(tableName: tableName)
+                }
+            case .select:
+                if case .select(_) = change {
+                    // Handle select action
+                    try await updateTableData(tableName: tableName)
+                }
+            }
+        }
+    }
+
+    func updateTableData(tableName: String) async throws {
+        switch tableName {
+        case "filmrating":
+            try await updateFilmRatings()
+        case "interaction":
+            try await updateUserInteractions()
+        default:
+            print("Unknown table name: \(tableName)")
+        }
+    }
+
+
+    func fetchFilmRatings() async throws -> [FilmRatingModel] { 
+        let response = try await supabaseClient.from("filmrating").select().execute()
+        
+        let data = response.data
+        
+        let decoder = JSONDecoder()
+        
+        do {
+            let filmRatings = try decoder.decode([FilmRatingModel].self, from: data)
+            
+            
+            return filmRatings
+        } catch {
+            throw error
+        }
+    }
+    
+    func updateFilmRatings() async throws {
+        // Fetch the updated film ratings from the database
+        let updatedFilmRatings = try await fetchFilmRatings()
+        // Update the @Published var
+        DispatchQueue.main.async {
+            self.filmRatings = updatedFilmRatings
+        }
+    }
+    
+    func updateUserInteractions() async throws {
+        // Fetch the updated film ratings from the database
+        let updatedUserInteractions = try await fetchUserInteractions(for: "1a4aa126000048f89c0e6d249f3249c2")
+        // Update the @Published var
+        DispatchQueue.main.async {
+            self.userInteractions = updatedUserInteractions
+        }
+    }
+    
 }
 
 

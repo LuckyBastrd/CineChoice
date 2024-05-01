@@ -18,21 +18,21 @@ struct MainView: View {
         ZStack {
             
             ForEach(supabaseManager.cards.indices, id: \.self) { index in
-                if !supabaseManager.cards.isEmpty {
+                if supabaseManager.cards.isEmpty {
                     EmptyCardView()
                 } else {
-//                    BlurBackgroundView(card: supabaseManager.cards[index])
+                    BlurBackgroundView(card: supabaseManager.cards[index])
                 }
             }
             
-//            ForEach(supabaseManager.cards.indices, id: \.self) { index in
-//                CardView(
-//                    cardCount: supabaseManager.cards.count - 1,
-//                    card: supabaseManager.cards[index],
-//                    index: index,
-//                    currentIndex: $currentIndex
-//                )
-//            }
+            ForEach(supabaseManager.cards.indices, id: \.self) { index in
+                CardView(
+                    cardCount: supabaseManager.cards.count - 1,
+                    card: supabaseManager.cards[index],
+                    index: index,
+                    currentIndex: $currentIndex
+                )
+            }
 
         }
 //        .onChange(of: currentIndex) { oldValue, newValue in

@@ -12,14 +12,14 @@ class CreateManager {
     
     static let shared = CreateManager()
     
-    let supabase = SupabaseConfiguration.supabase
+    let supabaseClient = SupabaseConfiguration.supabaseClient
     
     func createInteraction(userid: String, filmid: Int, action: String) async {
         do { 
             
             let filmidString = String(filmid)
             
-            try await supabase.rpc("createinteraction", params: ["userid": userid, 
+            try await supabaseClient.rpc("createinteraction", params: ["userid": userid, 
                                                                 "filmid": filmidString,
                                                                 "action": action]).execute()
         } catch {

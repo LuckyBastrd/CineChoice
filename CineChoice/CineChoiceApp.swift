@@ -29,7 +29,7 @@ struct CineChoiceApp: App {
                 }
             }
             .onAppear {
-                supabaseManager.fetchInitialData { error in
+                supabaseManager.fetchInitialDataAndSubscribe() { error in
                     if let error = error {
                         print("Error fetching initial data: \(error)")
                     } else {
