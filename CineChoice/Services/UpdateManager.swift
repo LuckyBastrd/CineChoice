@@ -12,7 +12,7 @@ class UpdateManager {
     
     static let shared = UpdateManager()
     
-    let supabase = SupabaseConfiguration.supabase
+    let supabaseClient = SupabaseConfiguration.supabaseClient
     
     func updateCard(_ card: CardModel, from supaBaseManager: SupabaseManager, action: String, like: Int, dislike: Int, unseen: Int) {
         DeleteManager.shared.removeCard(card, from: supaBaseManager)
@@ -31,7 +31,7 @@ class UpdateManager {
     
     func updateUserAction(userid: String) async {
         do {            
-            try await supabase.rpc("updateuseraction", params: ["userid": userid]).execute()
+            try await supabaseClient.rpc("updateuseraction", params: ["userid": userid]).execute()
             
         } catch {
             print("Error: \(error)")
@@ -40,7 +40,7 @@ class UpdateManager {
     
     func upSertFilmRating(filmid: Int, filmlike: Int, filmdislike: Int, filmunseen: Int) async {
         do { 
-            try await supabase.rpc("upsertfilmrating", params: ["filmid": filmid, 
+            try await supabaseClient.rpc("upsertfilmrating", params: ["filmid": filmid, 
                                                                 "filmlike": filmlike,
                                                                 "filmdislike": filmdislike,
                                                                 "filmunseen": filmunseen]).execute()

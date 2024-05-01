@@ -11,9 +11,7 @@ import FCUUID
 struct ContentView: View {
     
     @EnvironmentObject var supabaseManager: SupabaseManager
-    //@StateObject var userViewModel = UserViewModel()
     
-    //var appData: AppData = .init()
     @State var selectebTabs: Tabs = .swipe
     @State var navigateToQR = false
     
@@ -21,7 +19,7 @@ struct ContentView: View {
         ZStack {
             VStack(spacing: 0) {
                 if supabaseManager.user == nil {
-                    LoginView()
+                    //LoginView()
                 } else {
                     
                     switch selectebTabs {
@@ -42,24 +40,35 @@ struct ContentView: View {
                     
                     CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)
                 }
-            }
-//            .navigationDestination(isPresented: $navigateToQR) { 
-//                QRView()
-//            }
-            
-            if navigateToQR {
-                Color.black.opacity(0.5)
-                    .edgesIgnoringSafeArea(.all)
                 
-                QRView()
-                    .transition(.move(edge: .bottom))
-                    .animation(.easeInOut(duration: 0.5))
-//                withAnimation(.easeInOut(duration: 20.0)) {
-//                    QRView()
-//                        .transition(.move(edge: .bottom))
-//                }
             }
+            .navigationDestination(isPresented: $navigateToQR) {
+                QRView()
+            }
+            
+            
+//            if navigateToQR {
+//                Color.black.opacity(0.5)
+//                    .edgesIgnoringSafeArea(.all)
+//                
+//                QRView()
+//                    .transition(.move(edge: .bottom))
+//                    .animation(.easeInOut(duration: 0.5))
+//            }
         }
+    }
+}
+
+struct ThemeAnimationStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(.title2)
+            .foregroundColor(Color.white)
+            .frame(height: 50, alignment: .center)
+            .background(configuration.isPressed ? Color.green.opacity(0.5) : Color.green)
+            .cornerRadius(8)
+            .shadow(color: Color.gray, radius: 10, x: 0, y: 0)
+            .scaleEffect(configuration.isPressed ? 0.9 : 1.0) //<- change scale value as per need. scaleEffect(configuration.isPressed ? 1.2 : 1.0)
     }
 }
 

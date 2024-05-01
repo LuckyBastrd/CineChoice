@@ -19,13 +19,24 @@ struct ScanView: View {
     @Environment (\.openURL) private var openURL
     @StateObject private var qrDelegate = QRScannerDelegate()
     @State private var scannedCode: String = ""
+    @EnvironmentObject var supabaseManager: SupabaseManager
+    @State private var scannedUserID: String? = nil
+//    @State private var scannedUserImage: UIImage?
+    @State private var isShowingView = false
     
     var body: some View {
         ZStack{
             NavigationStack{
                 ZStack{
+                    NavigationLink(
+                        destination: EmptyView(), // Pass scannedCode
+                        isActive: $isShowingView,
+                        label: {
+                            EmptyView() // Invisible navigation link trigger
+                        })
+                        .opacity(0)
                     Rectangle()
-                        .fill(Color("Grey"))
+                        .fill(Color("ccGray"))
                         .ignoresSafeArea()
                     VStack{
                         HStack{
@@ -61,7 +72,9 @@ struct ScanView: View {
                                     .offset(y: isScanning ? geometry.size.width : 0)
                             })
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .onAppear(perform: checkCameraPermission)
+                            .onAppear{
+                                checkCameraPermission()
+                            }
                             .alert(errorMessage, isPresented: $showError){
                                 if cameraPermission == .denied {
                                     Button("Settings") {
@@ -82,16 +95,18 @@ struct ScanView: View {
                                     stopScanAnimation()
                                     print(code)
                                     qrDelegate.scannedCode = nil
+                                    isShowingView = true
                                     return
                                 }
                             }
+                            
                         }
                         .padding(.horizontal, 70)
                         
                         Spacer()
                         HStack{
                             Spacer()
-                            NavigationLink(destination: ContentView()){
+                            NavigationLink(destination: QRView()){
                                 ZStack{
                                     Circle()
                                         .foregroundColor(.yellow)
