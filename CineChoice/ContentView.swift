@@ -11,9 +11,7 @@ import FCUUID
 struct ContentView: View {
     
     @EnvironmentObject var supabaseManager: SupabaseManager
-    //@StateObject var userViewModel = UserViewModel()
     
-    //var appData: AppData = .init()
     @State var selectebTabs: Tabs = .swipe
     @State var navigateToQR = false
     
@@ -29,6 +27,7 @@ struct ContentView: View {
                         MainView()
                     case .profile:
                         ProfileView()
+                        //TestView()
                     }
                     
                     CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)

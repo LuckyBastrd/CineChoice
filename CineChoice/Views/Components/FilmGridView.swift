@@ -111,13 +111,13 @@ struct FilmGridViewGenerator: View  {
             filmGridModelList = []
             for interaction in self.input {
                 if(interaction.action == "like" && filter == 0){
-                    filmGridModelList.append(FilmGridModel(interaction.film.filmPoster, ""))
+                    filmGridModelList.append(FilmGridModel(interaction.filmPoster, ""))
                 }
                 if(interaction.action == "dislike" && filter == 1){
-                    filmGridModelList.append(FilmGridModel(interaction.film.filmPoster, ""))
+                    filmGridModelList.append(FilmGridModel(interaction.filmPoster, ""))
                 }
                 if(interaction.action == "unseen" && filter == 2){
-                    filmGridModelList.append(FilmGridModel(interaction.film.filmPoster, ""))
+                    filmGridModelList.append(FilmGridModel(interaction.filmPoster, ""))
                 }
                     
             }

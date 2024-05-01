@@ -6,31 +6,27 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct EmptyCardView: View {
     var body: some View {
-        ZStack {
+        VStack {
             ZStack {
                 GeometryReader { geo in
-//                    Rectangle()
-//                        .fill(Color.gray)
-//                        .scaledToFill()
-//                        .frame(width: geo.size.width, height: geo.size.height)
-                    
-                    Image(systemName: "film.circle")
+                    Image("CitizenKane")
                         .resizable()
-                        .frame(width: 130, height: 130)
-                        .foregroundColor(.red)
-                    
-                    Image(systemName: "line.diagonal")
-                        .resizable()
-                        .frame(width: 95, height: 95)
-                        .foregroundColor(.red)
+                        .scaledToFill()
+                        .frame(width: geo.size.width, height: geo.size.height)
                 }
                 
-//                GeometryReader { proxy in
-//                    BlurView(style: .systemThinMaterialDark)
-//                }
+                GeometryReader { proxy in
+                    BlurView(style: .systemThinMaterialDark)
+                }
+                
+                Image(systemName: "xmark.circle")
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                    .foregroundColor(.ccRed)
             }
             .ignoresSafeArea(.all, edges: .all)
         }
