@@ -57,4 +57,25 @@ class CreateManager: ObservableObject {
         }
     }
     
+    func fetchUser(for userid: String, from supaBaseManager: SupabaseManager) async throws -> [UserModel] {
+
+        let response = try await supabaseClient.from("user").select().equals("userID", value: userid).execute()
+        
+        let data = response.data
+        
+        let decoder = JSONDecoder()
+        
+        do {
+            let users = try decoder.decode([UserModel].self, from: data)
+            
+            DispatchQueue.main.async {
+                supaBaseManager.user = users.first
+            }
+            
+            return users
+        } catch {
+            throw error
+        }
+    }
+    
 }

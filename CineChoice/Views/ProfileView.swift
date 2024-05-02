@@ -44,8 +44,6 @@ struct ProfileView: View {
     
     @EnvironmentObject var supabaseManager: SupabaseManager
     
-    
-    
     @State var pickerSelection = 0
     
     @State var navigateToFilm = false

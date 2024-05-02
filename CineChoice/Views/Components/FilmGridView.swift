@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Kingfisher
+import FCUUID
 
 extension Hashable where Self: AnyObject {
 
@@ -77,7 +78,7 @@ struct filmGridCard: View {
 }
 
 struct FilmGridViewGenerator: View  {
-    
+    @EnvironmentObject var supabaseManager: SupabaseManager
     @Binding var filter: Int
     
     @Binding var navigateToFilm: Bool
@@ -91,9 +92,7 @@ struct FilmGridViewGenerator: View  {
     
     var input: [InteractionModel]
     
-    var filmGridModelList = [
-        FilmGridModel("https://shucboqluxegybsrzyfz.supabase.co/storage/v1/object/sign/filmPosters/siksaKubur.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJmaWxtUG9zdGVycy9zaWtzYUt1YnVyLmpwZyIsImlhdCI6MTcxNDQxODMwNSwiZXhwIjoxNzQ1OTU0MzA1fQ.4u7NA9jq479kZPwEkSoIEFmmd_ULNefH7lmuXwoTysA&t=2024-04-29T19%3A18%3A25.323Z", 0)
-    ]
+    var filmGridModelList: [FilmGridModel] = []
     
     init(input: [InteractionModel], filterd: Binding<Int>, navigateToFilm: Binding<Bool>, selectedFilmId: Binding <Int>) {
         self.input = input
@@ -101,32 +100,26 @@ struct FilmGridViewGenerator: View  {
 
         self._navigateToFilm = navigateToFilm
         self._selectedFilmId = selectedFilmId
-
-        
-        if(!self.input.isEmpty){
-            filmGridModelList = []
-            for interaction in self.input {
-                if(interaction.action == "like" && self.filter == 0){
-                    filmGridModelList.append(FilmGridModel(interaction.filmPoster, interaction.filmID))
-                }
-                if(interaction.action == "dislike" && self.filter == 1){
-                    filmGridModelList.append(FilmGridModel(interaction.filmPoster, interaction.filmID))
-                }
-                if(interaction.action == "unseen" && self.filter == 2){
-                    filmGridModelList.append(FilmGridModel(interaction.filmPoster, interaction.filmID))
-                }
-                    
-            }
-        }
     }
     
     var body: some View {
         
         ScrollView(.horizontal) {
             LazyVGrid(columns: columns, spacing: gs) {
-                ForEach(self.filmGridModelList, id: \.self) { n in
+                ForEach(supabaseManager.userInteractions.indices, id: \.self) { n in
+                    if supabaseManager.userInteractions[n].userID == FCUUID.uuidForDevice(){
+                        
+                        if(supabaseManager.userInteractions[n].action == "like" && filter == 0){
+                            filmGridCard(imageUrl:supabaseManager.userInteractions[n].filmPoster, filmId: supabaseManager.userInteractions[n].filmID, navigateToFilm: $navigateToFilm, selectedFilmId: $selectedFilmId)
+                        }
+                        if(supabaseManager.userInteractions[n].action == "dislike" && filter == 1){
+                            filmGridCard(imageUrl:supabaseManager.userInteractions[n].filmPoster, filmId: supabaseManager.userInteractions[n].filmID, navigateToFilm: $navigateToFilm, selectedFilmId: $selectedFilmId)
+                        }
+                        if(supabaseManager.userInteractions[n].action == "unseen" && filter == 2){
+                            filmGridCard(imageUrl:supabaseManager.userInteractions[n].filmPoster, filmId: supabaseManager.userInteractions[n].filmID, navigateToFilm: $navigateToFilm, selectedFilmId: $selectedFilmId)
+                        }
+                    }
                     
-                    filmGridCard(imageUrl:n.posterUrl, filmId: n.filmId, navigateToFilm: $navigateToFilm, selectedFilmId: $selectedFilmId)
                     
                 }
             }

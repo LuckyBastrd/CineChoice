@@ -64,6 +64,7 @@ struct GridItemDemo2: View {
                                 .scaledToFill()
                                 .frame(width: 3*gs,height: 3*gs)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
+                                
                         }
                     }
                     
