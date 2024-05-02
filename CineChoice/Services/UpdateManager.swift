@@ -8,7 +8,7 @@
 import Foundation
 import Supabase
 
-class UpdateManager {
+class UpdateManager: ObservableObject {
     
     static let shared = UpdateManager()
     

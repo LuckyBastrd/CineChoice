@@ -11,6 +11,9 @@ import SwiftUI
 struct CineChoiceApp: App {
     
     @StateObject var supabaseManager = SupabaseManager()
+    @StateObject var updateManager = UpdateManager()
+    @StateObject var createManager = CreateManager()
+    
     var appData: AppData = .init()
     
     init() {
@@ -39,6 +42,8 @@ struct CineChoiceApp: App {
             }
         }
         .environmentObject(supabaseManager)
+        .environmentObject(updateManager)
+        .environmentObject(createManager)
         .environment(appData)
     }
 }

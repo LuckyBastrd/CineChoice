@@ -11,6 +11,7 @@ import AVKit
 struct LoginView: View {
     
     @EnvironmentObject var supabaseManager: SupabaseManager
+    @EnvironmentObject var createManager: CreateManager
     @StateObject var camera = CameraModel()
     @State var permission = false
     @Binding var doneLogin: Bool
@@ -76,7 +77,7 @@ struct LoginView: View {
                         Spacer()
                         Button(action:{
                             print("start upload...")
-                            supabaseManager.createNewUser(completion:{ error in
+                            createManager.createNewUser(completion:{ error in
                                     if let error = error {
                                         print("Error making user: \(error)")
                                     } else {
