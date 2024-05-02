@@ -12,17 +12,19 @@ struct ContentView: View {
     
     @EnvironmentObject var supabaseManager: SupabaseManager
     
-    @State var selectebTabs: Tabs = .swipe
+    @State var doneLogin = false
+    @State var selectedTabs: Tabs = .swipe
     @State var navigateToQR = false
     
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                if supabaseManager.user == nil {
-                    //LoginView()
+                if supabaseManager.user == nil{
+                    if(doneLogin == false){
+                        LoginView(doneLogin: $doneLogin)
+                    }
                 } else {
-                    
-                    switch selectebTabs {
+                    switch selectedTabs {
                     case .swipe:
                         MainView()
                     case .profile:
@@ -38,7 +40,7 @@ struct ContentView: View {
                             }
                     }
                     
-                    CustomTabBarView(selectedTabs: $selectebTabs, navigateToQR: $navigateToQR)
+                    CustomTabBarView(selectedTabs: $selectedTabs, navigateToQR: $navigateToQR)
                 }
                 
             }

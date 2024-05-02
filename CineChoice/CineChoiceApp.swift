@@ -33,7 +33,7 @@ struct CineChoiceApp: App {
                     if let error = error {
                         print("Error fetching initial data: \(error)")
                     } else {
-                        print("Initial data fetched successfully")
+                        print("Initial data fetched successfully by windowgroup")
                     }
                 }
             }
