@@ -20,4 +20,5 @@ struct AllInteractionModel: Decodable {
     let userPicture: String
     let filmID: Int
     let action: String
+    let filmPoster: String
 }
