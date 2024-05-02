@@ -35,17 +35,22 @@ struct ScanView: View {
                             EmptyView() // Invisible navigation link trigger
                         })
                         .opacity(0)
+                        .navigationBarBackButtonHidden(true)
                     Rectangle()
                         .fill(Color("ccGray"))
                         .ignoresSafeArea()
                     VStack{
-                        HStack{
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.white)
-                                .font(.title2)
-                            Spacer()
+                        NavigationLink (destination: ContentView()){
+                            HStack{
+                                Image(systemName: "chevron.left")
+                                    .foregroundColor(.white)
+                                    .font(.title2)
+                                Spacer()
+                            }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        .navigationBarBackButtonHidden(true)
+                        
                         Spacer()
                         //Scanner
                         GeometryReader{ geometry in

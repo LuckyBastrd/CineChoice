@@ -27,13 +27,17 @@ struct CompatibilityView: View {
                         .foregroundColor(Color.ccGray)
                         .ignoresSafeArea()
                     VStack{
-                        HStack{
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.white)
-                                .font(.title2)
-                            Spacer()
+                        NavigationLink (destination: ScanView()){
+                            HStack{
+                                Image(systemName: "chevron.left")
+                                    .foregroundColor(.white)
+                                    .font(.title2)
+                                Spacer()
+                            }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        .navigationBarBackButtonHidden(true)
+                        
                         Spacer()
                         ZStack{
                             Circle()
@@ -73,7 +77,6 @@ struct CompatibilityView: View {
                         
                     }
                     .onAppear{
-                        fetchUserImage(userID: scannedCode)
                         fetchUserInformation(userID: scannedCode)
                     }
                 }
@@ -82,19 +85,19 @@ struct CompatibilityView: View {
         
     }
     
-    func fetchUserImage(userID: String) {
-           do {
-               Task {
-                   if let user = try await supabaseManager.fetchUser(for: userID).first {
-                       // Update the user state variable
-                       self.user = user
-                       print("User found: \(user)")
-                   } else {
-                       print("User not found for ID: \(userID)")
-                   }
-               }
-           }
-       }
+//    func fetchUserImage(userID: String) {
+//           do {
+//               Task {
+//                   if let user = try await supabaseManager.fetchUser(for: userID).first {
+//                       // Update the user state variable
+//                       self.user = user
+//                       print("User found: \(user)")
+//                   } else {
+//                       print("User not found for ID: \(userID)")
+//                   }
+//               }
+//           }
+//       }
     
     func fetchUserInformation(userID: String) {
             do {
@@ -102,14 +105,12 @@ struct CompatibilityView: View {
                     if let user = try await supabaseManager.fetchUser(for: userID).first {
                         // Update the user state variable
                         self.user = user
-                        print("User found: \(user)")
                         
                         // Fetch user interactions based on the user's ID
                         do {
                             let interactions = try await supabaseManager.fetchUserInteractions(for: userID)
                             // Update the userInteractions state variable
                             self.userInteractions = interactions
-                            print("User interactions found: \(interactions)")
                         } catch {
                             print("Error fetching user interactions: \(error)")
                         }
