@@ -14,15 +14,12 @@ struct MainView: View {
     
     @State private var showInformation = false
     @State private var currentIndex: Int = 0
+    @State private var filmIndex: Int = 0
+    @State private var selectedAction: String = " "
     
     var body: some View {
         ZStack {
             ForEach(supabaseManager.cards.indices, id: \.self) { index in
-                //                if supabaseManager.cards.isEmpty {
-                //                    EmptyCardView()
-                //                } else {
-                //                    BlurBackgroundView(card: supabaseManager.cards[index])
-                //                }
                 BlurBackgroundView(card: supabaseManager.cards[index])
             }
             
@@ -32,19 +29,23 @@ struct MainView: View {
                     card: supabaseManager.cards[index],
                     index: index,
                     currentIndex: $currentIndex,
-                    showInformation: $showInformation
+                    showInformation: $showInformation,
+                    filmIndex: $filmIndex,
+                    selectedAction: $selectedAction
                 )
             }
             
-            if supabaseManager.cards.isEmpty {
-                EmptyCardView()
-            } 
-            
             if showInformation {
-                ForEach(supabaseManager.filmRatings.indices, id: \.self){ index in 
-                    InformationView(ratings: supabaseManager.filmRatings[index])
+                ForEach(supabaseManager.filmRatings.indices, id: \.self) { index in
+                    if supabaseManager.filmRatings[index].filmID == filmIndex {
+                        InformationView(ratings: supabaseManager.filmRatings[index], showInformation: $showInformation, selectedAction: selectedAction)
+                    }
                 }
-            }
+            } else {
+                if supabaseManager.cards.isEmpty {
+                    EmptyCardView()
+                }
+            } 
             
         }
         //        .onChange(of: currentIndex) { oldValue, newValue in

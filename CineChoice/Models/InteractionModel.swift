@@ -14,3 +14,10 @@ struct InteractionModel: Decodable {
     let filmTitle: String
     let filmPoster: String
 }
+
+struct AllInteractionModel: Decodable {
+    let userID: String
+    let userPicture: String
+    let filmID: Int
+    let action: String
+}

@@ -22,6 +22,8 @@ struct CardView: View {
     let index: Int
     @Binding var currentIndex: Int 
     @Binding var showInformation: Bool
+    @Binding var filmIndex: Int
+    @Binding var selectedAction: String
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -90,6 +92,10 @@ private extension CardView {
                 
                 currentIndex -= 1
                 
+                filmIndex = index + 1
+                
+                selectedAction = "like"
+                
                 showInformation = true
             }
         }
@@ -111,6 +117,10 @@ private extension CardView {
                 
                 currentIndex -= 1
                 
+                filmIndex = index + 1
+                
+                selectedAction = "dislike"
+                
                 showInformation = true
             }
         }
@@ -130,6 +140,10 @@ private extension CardView {
                     unseen: 1)
                 
                 currentIndex -= 1
+                
+                filmIndex = index + 1
+                
+                selectedAction = "unseen"
                 
                 showInformation = true
             }

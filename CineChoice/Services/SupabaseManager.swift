@@ -19,6 +19,7 @@ class SupabaseManager: ObservableObject {
     @Published var films: [FilmModel] = []
     @Published var cards: [CardModel] = []
     @Published var userInteractions: [InteractionModel] = []
+    @Published var allInteractions: [AllInteractionModel] = []
     @Published var filmRatings: [FilmRatingModel] = []
     
     func createNewUser(completion: @escaping (Error?) -> Void, userId: String, imageData: Data){
@@ -83,25 +84,6 @@ class SupabaseManager: ObservableObject {
         }
     }
     
-
-    func updateUserInteractions(completion: @escaping (Error?) -> Void){
-        Task {
-            do {
-                // Fetch film data
-                let userInteractions = try await fetchUserInteractions(for: FCUUID.uuidForDevice())
-                
-                DispatchQueue.main.async {
-                    self.userInteractions = userInteractions
-                }
-                
-                completion(nil)
-            } catch {
-                // Handle error
-                completion(error)
-            }
-        }
-    }
-    
     func fetchInitialData() async throws {
         // Fetch user data
         let users = try await fetchUser(for: FCUUID.uuidForDevice())
@@ -112,6 +94,8 @@ class SupabaseManager: ObservableObject {
         // Fetch user interaction data
         let userInteractions = try await fetchUserInteractions(for: FCUUID.uuidForDevice())
         
+        // Fetch all user interaction data
+        let allInteractions = try await fetchAllInteractions()        
         // Fetch film and map inot card
         _ = try await fetchCards()
         
@@ -122,6 +106,7 @@ class SupabaseManager: ObservableObject {
             self.user = users.first
             self.films = films
             self.userInteractions = userInteractions
+            self.allInteractions =  allInteractions
             self.filmRatings = filmRatings
 
         }
@@ -175,6 +160,33 @@ class SupabaseManager: ObservableObject {
         return cards
     }
     
+    func fetchAllInteractions() async throws -> [AllInteractionModel] {
+        
+        let response = try await supabaseClient.rpc("getallinteractions").execute()
+        
+        let data = response.data
+        
+        if !data.isEmpty {
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let allInteractions = try decoder.decode([AllInteractionModel].self, from: data)
+                
+                print(allInteractions)
+                
+                return allInteractions
+            } catch {
+                print("Error decoding user interactions:", error)
+                
+                throw error
+            }
+            
+        } else {
+            return []
+        }
+    }
+    
     func fetchUserInteractions(for userid: String) async throws -> [InteractionModel] {
         
         let response = try await supabaseClient.rpc("getinteractionwithfilm", params: ["interactionuserid": userid]).execute()
@@ -187,7 +199,7 @@ class SupabaseManager: ObservableObject {
             
             do {
                 let interactions = try decoder.decode([InteractionModel].self, from: data)
-                print(interactions)
+                
                 return interactions
             } catch {
                 print("Error decoding user interactions:", error)
@@ -238,24 +250,28 @@ class SupabaseManager: ObservableObject {
             switch change {
             case .delete(let action):
                 if action.oldRecord.keys.contains("filmRatingID") {
+                    print("rating1")
                     try await updateFilmRatings()
                 } else if action.oldRecord.keys.contains("interactionID") {
                     try await updateUserInteractions()
                 }
             case .insert(let action):
                 if action.record.keys.contains("filmRatingID") {
+                    print("rating2")
                     try await updateFilmRatings()
                 } else if action.record.keys.contains("interactionID") {
                     try await updateUserInteractions()
                 }
             case .select(let action):
                 if action.record.keys.contains("filmRatingID") {
+                    print("rating3")
                     try await updateFilmRatings()
                 } else if action.record.keys.contains("interactionID") {
                     try await updateUserInteractions()
                 }
             case .update(let action):
                 if action.record.keys.contains("filmRatingID") {
+                    print("rating4")
                     try await updateFilmRatings()
                 } else if action.record.keys.contains("interactionID") {
                     try await updateUserInteractions()
@@ -267,6 +283,7 @@ class SupabaseManager: ObservableObject {
     func updateFilmRatings() async throws {
         // Fetch the updated film ratings from the database
         let updatedFilmRatings = try await fetchAllFilmRatings()
+        
         // Update the @Published var
         DispatchQueue.main.async {
             self.filmRatings = updatedFilmRatings

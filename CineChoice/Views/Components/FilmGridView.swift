@@ -98,8 +98,10 @@ struct FilmGridViewGenerator: View  {
     init(input: [InteractionModel], filterd: Binding<Int>, navigateToFilm: Binding<Bool>, selectedFilmId: Binding <Int>) {
         self.input = input
         self._filter = filterd
+
         self._navigateToFilm = navigateToFilm
         self._selectedFilmId = selectedFilmId
+
         
         if(!self.input.isEmpty){
             filmGridModelList = []
