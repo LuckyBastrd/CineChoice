@@ -13,6 +13,7 @@ import Supabase
 
 struct QRView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var supabaseManager: SupabaseManager
     
     var body: some View{
@@ -26,7 +27,7 @@ struct QRView: View {
                     VStack{
                         HStack{
                             Button(action: {
-                                
+                                self.presentationMode.wrappedValue.dismiss()
                             }) {
                                 Image(systemName: "xmark")
                                     .foregroundColor(.white)

@@ -29,7 +29,7 @@ struct ScanView: View {
             NavigationStack{
                 ZStack{
                     NavigationLink(
-                        destination: CompatibilityView(scannedCode: scannedCode), // Pass scannedCode
+                        destination: EmptyView(), // Pass scannedCode
                         isActive: $isShowingView,
                         label: {
                             EmptyView() // Invisible navigation link trigger

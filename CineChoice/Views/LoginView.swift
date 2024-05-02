@@ -9,8 +9,11 @@ import FCUUID
 import AVKit
 
 struct LoginView: View {
+    
+    @EnvironmentObject var supabaseManager: SupabaseManager
     @StateObject var camera = CameraModel()
     @State var permission = false
+    @Binding var doneLogin: Bool
     
     var body: some View {
 //      VStack {
@@ -71,7 +74,27 @@ struct LoginView: View {
                         })
                         .padding(.vertical, -150)
                         Spacer()
-                        Button(action: camera.savePic, label: {
+                        Button(action:{
+                            print("start upload...")
+                            supabaseManager.createNewUser(completion:{ error in
+                                    if let error = error {
+                                        print("Error making user: \(error)")
+                                    } else {
+                                        print("User created Successfuly")
+                                        
+                                        supabaseManager.fetchInitialDataAndSubscribe() { error in
+                                            if let error = error {
+                                                print("Error fetching initial data: \(error)")
+                                            } else {
+                                                print("Initial data fetched successfully by windowgroup")
+                                            }
+                                        }
+                                        self.doneLogin = true
+                                    }
+                                
+                            }, userId: FCUUID.uuidForDevice(), imageData: camera.picData)
+                            
+                        }, label: {
                             ZStack{
                                 Circle()
                                     .foregroundColor(.yellow)
@@ -184,8 +207,9 @@ class CameraModel: NSObject ,ObservableObject, AVCapturePhotoCaptureDelegate {
         
         self.base64String = imageData.base64EncodedString()
         
-        print("\(imageData)")
-        print("Photo data: \(base64String)")
+        //print("\(imageData)")
+        //print("Photo data: \(base64String)")
+        
     }
     
     func savePic(){
@@ -234,6 +258,6 @@ struct CameraPreview: UIViewRepresentable {
 }
 
   
-#Preview {
-  LoginView()
-}
+//#Preview {
+//  LoginView()
+//}

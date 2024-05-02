@@ -25,17 +25,14 @@
 		0584A7DB2BDAA1D100C7B67B /* LikedMovieIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7DA2BDAA1D100C7B67B /* LikedMovieIndicatorView.swift */; };
 		0584A7DD2BDAA2A400C7B67B /* DislikedMovieIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7DC2BDAA2A400C7B67B /* DislikedMovieIndicatorView.swift */; };
 		0584A7DF2BDAA36300C7B67B /* NotWatchYetMovieIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7DE2BDAA36300C7B67B /* NotWatchYetMovieIndicatorView.swift */; };
-		0584A7E12BDAA90700C7B67B /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7E02BDAA90700C7B67B /* CardStackView.swift */; };
 		0584A7E92BDC043B00C7B67B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7E82BDC043B00C7B67B /* UserModel.swift */; };
 		0584A7EB2BDC044300C7B67B /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7EA2BDC044300C7B67B /* FilmModel.swift */; };
 		0584A7ED2BDC06A200C7B67B /* InteractionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7EC2BDC06A200C7B67B /* InteractionModel.swift */; };
-		0584A7F82BDC0D2A00C7B67B /* Film+CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7F72BDC0D2A00C7B67B /* Film+CloudKit.swift */; };
 		0584A7FA2BDC251C00C7B67B /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A7F92BDC251C00C7B67B /* CardModel.swift */; };
 		0584A8022BDD44DD00C7B67B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8012BDD44DD00C7B67B /* AudioPlayer.swift */; };
 		0584A82A2BDEAADF00C7B67B /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8292BDEAADF00C7B67B /* CustomTabBarView.swift */; };
 		0584A82E2BDF82E100C7B67B /* SwipeColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A82D2BDF82E100C7B67B /* SwipeColorConstant.swift */; };
 		0584A8382BE00C6500C7B67B /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8372BE00C6500C7B67B /* SupabaseManager.swift */; };
-		0584A8682BE0C7FC00C7B67B /* RemoveCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8672BE0C7FC00C7B67B /* RemoveCardView.swift */; };
 		0584A8772BE1462400C7B67B /* LikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8762BE1462400C7B67B /* LikeModel.swift */; };
 		0584A8792BE158EC00C7B67B /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8782BE158EC00C7B67B /* TestView.swift */; };
 		0584A87B2BE167FA00C7B67B /* DeleteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A87A2BE167FA00C7B67B /* DeleteManager.swift */; };
@@ -44,6 +41,7 @@
 		0584A8822BE260BB00C7B67B /* SupabaseConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8812BE260BB00C7B67B /* SupabaseConfiguration.swift */; };
 		0584A8842BE272F200C7B67B /* EmptyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584A8832BE272F200C7B67B /* EmptyCardView.swift */; };
 		059ABDF22BE287DE0036DB21 /* FilmRatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059ABDF12BE287DE0036DB21 /* FilmRatingModel.swift */; };
+		059ABDF62BE2FE730036DB21 /* InformationGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059ABDF52BE2FE730036DB21 /* InformationGridView.swift */; };
 		769FC58B2BE0E0E600D149FB /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC58A2BE0E0E600D149FB /* Auth */; };
 		769FC58D2BE0E0E600D149FB /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC58C2BE0E0E600D149FB /* Functions */; };
 		769FC58F2BE0E0E600D149FB /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 769FC58E2BE0E0E600D149FB /* PostgREST */; };
@@ -62,6 +60,7 @@
 		76BD4EDF2BE2AEDF00DAB713 /* CompatibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD4EDE2BE2AEDF00DAB713 /* CompatibilityView.swift */; };
 		F85DBB032BE27A8400C2ACD0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */; };
 		F85DBB052BE27AD800C2ACD0 /* FilmGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DBB042BE27AD800C2ACD0 /* FilmGridView.swift */; };
+		F85DBB072BE287FC00C2ACD0 /* FilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DBB062BE287FC00C2ACD0 /* FilmView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,18 +83,15 @@
 		0584A7DA2BDAA1D100C7B67B /* LikedMovieIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedMovieIndicatorView.swift; sourceTree = "<group>"; };
 		0584A7DC2BDAA2A400C7B67B /* DislikedMovieIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DislikedMovieIndicatorView.swift; sourceTree = "<group>"; };
 		0584A7DE2BDAA36300C7B67B /* NotWatchYetMovieIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotWatchYetMovieIndicatorView.swift; sourceTree = "<group>"; };
-		0584A7E02BDAA90700C7B67B /* CardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
 		0584A7E22BDBA16900C7B67B /* CineChoice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CineChoice.entitlements; sourceTree = "<group>"; };
 		0584A7E82BDC043B00C7B67B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0584A7EA2BDC044300C7B67B /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		0584A7EC2BDC06A200C7B67B /* InteractionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionModel.swift; sourceTree = "<group>"; };
-		0584A7F72BDC0D2A00C7B67B /* Film+CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Film+CloudKit.swift"; sourceTree = "<group>"; };
 		0584A7F92BDC251C00C7B67B /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		0584A8012BDD44DD00C7B67B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		0584A8292BDEAADF00C7B67B /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		0584A82D2BDF82E100C7B67B /* SwipeColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeColorConstant.swift; sourceTree = "<group>"; };
 		0584A8372BE00C6500C7B67B /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
-		0584A8672BE0C7FC00C7B67B /* RemoveCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCardView.swift; sourceTree = "<group>"; };
 		0584A8762BE1462400C7B67B /* LikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeModel.swift; sourceTree = "<group>"; };
 		0584A8782BE158EC00C7B67B /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		0584A87A2BE167FA00C7B67B /* DeleteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteManager.swift; sourceTree = "<group>"; };
@@ -104,6 +100,7 @@
 		0584A8812BE260BB00C7B67B /* SupabaseConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseConfiguration.swift; sourceTree = "<group>"; };
 		0584A8832BE272F200C7B67B /* EmptyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCardView.swift; sourceTree = "<group>"; };
 		059ABDF12BE287DE0036DB21 /* FilmRatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmRatingModel.swift; sourceTree = "<group>"; };
+		059ABDF52BE2FE730036DB21 /* InformationGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationGridView.swift; sourceTree = "<group>"; };
 		769FC59F2BE0E19C00D149FB /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 		769FC5A12BE0E1AF00D149FB /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		769FC5A32BE0E1DA00D149FB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -113,6 +110,7 @@
 		76BD4EDE2BE2AEDF00DAB713 /* CompatibilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityView.swift; sourceTree = "<group>"; };
 		F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F85DBB042BE27AD800C2ACD0 /* FilmGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmGridView.swift; sourceTree = "<group>"; };
+		F85DBB062BE287FC00C2ACD0 /* FilmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +189,7 @@
 				769FC5A12BE0E1AF00D149FB /* ScanView.swift */,
 				0584A8782BE158EC00C7B67B /* TestView.swift */,
 				F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */,
+				F85DBB062BE287FC00C2ACD0 /* FilmView.swift */,
 				76BD4EDE2BE2AEDF00DAB713 /* CompatibilityView.swift */,
 			);
 			path = Views;
@@ -224,12 +223,11 @@
 				0584A7DC2BDAA2A400C7B67B /* DislikedMovieIndicatorView.swift */,
 				0584A7DE2BDAA36300C7B67B /* NotWatchYetMovieIndicatorView.swift */,
 				0584A8832BE272F200C7B67B /* EmptyCardView.swift */,
-				0584A7E02BDAA90700C7B67B /* CardStackView.swift */,
 				0584A8292BDEAADF00C7B67B /* CustomTabBarView.swift */,
-				0584A8672BE0C7FC00C7B67B /* RemoveCardView.swift */,
 				769FC5A32BE0E1DA00D149FB /* CameraView.swift */,
 				769FC5A52BE0E1F200D149FB /* QRCodeView.swift */,
 				F85DBB042BE27AD800C2ACD0 /* FilmGridView.swift */,
+				059ABDF52BE2FE730036DB21 /* InformationGridView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -280,7 +278,6 @@
 		0584A7F62BDC0D0400C7B67B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0584A7F72BDC0D2A00C7B67B /* Film+CloudKit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -398,13 +395,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0584A8822BE260BB00C7B67B /* SupabaseConfiguration.swift in Sources */,
+				059ABDF62BE2FE730036DB21 /* InformationGridView.swift in Sources */,
 				0584A87F2BE25B4100C7B67B /* CreateManager.swift in Sources */,
-				0584A8682BE0C7FC00C7B67B /* RemoveCardView.swift in Sources */,
-				0584A7F82BDC0D2A00C7B67B /* Film+CloudKit.swift in Sources */,
 				769FC5AB2BE0E23100D149FB /* QRScannerDelegate.swift in Sources */,
 				0584A7A52BDA45D200C7B67B /* ContentView.swift in Sources */,
 				0584A7DB2BDAA1D100C7B67B /* LikedMovieIndicatorView.swift in Sources */,
 				769FC5A22BE0E1AF00D149FB /* ScanView.swift in Sources */,
+				F85DBB072BE287FC00C2ACD0 /* FilmView.swift in Sources */,
 				0584A7DF2BDAA36300C7B67B /* NotWatchYetMovieIndicatorView.swift in Sources */,
 				0584A82E2BDF82E100C7B67B /* SwipeColorConstant.swift in Sources */,
 				0584A7FA2BDC251C00C7B67B /* CardModel.swift in Sources */,
@@ -423,7 +420,6 @@
 				0584A7B52BDA481700C7B67B /* LoginView.swift in Sources */,
 				0584A87D2BE2355200C7B67B /* UpdateManager.swift in Sources */,
 				0584A7EB2BDC044300C7B67B /* FilmModel.swift in Sources */,
-				0584A7E12BDAA90700C7B67B /* CardStackView.swift in Sources */,
 				0584A7D52BDA8F1300C7B67B /* SizeConstant.swift in Sources */,
 				0584A7C22BDA4CD900C7B67B /* InformationView.swift in Sources */,
 				0584A8382BE00C6500C7B67B /* SupabaseManager.swift in Sources */,
@@ -575,7 +571,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = NRAJG6453M;
+				DEVELOPMENT_TEAM = 3F3KZHGXN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -610,7 +606,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = NRAJG6453M;
+				DEVELOPMENT_TEAM = 3F3KZHGXN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
