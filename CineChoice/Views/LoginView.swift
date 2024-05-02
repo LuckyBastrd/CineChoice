@@ -82,13 +82,8 @@ struct LoginView: View {
                                         print("Error making user: \(error)")
                                     } else {
                                         print("User created Successfuly")
-                                        
-                                        supabaseManager.fetchInitialDataAndSubscribe() { error in
-                                            if let error = error {
-                                                print("Error fetching initial data: \(error)")
-                                            } else {
-                                                print("Initial data fetched successfully by windowgroup")
-                                            }
+                                        Task{
+                                            try await createManager.fetchUser(for: FCUUID.uuidForDevice(), from: supabaseManager)
                                         }
                                         self.doneLogin = true
                                     }

@@ -11,7 +11,7 @@ class AudioPlayer {
     
     static var audioPlayer: AVAudioPlayer?
     static var audioData: Data?
-    static var peakVolume: Float = 5.0
+//    static var peakVolume: Float = 5.0
 
     static func preloadAudioPlayer(url: URL) {
         
@@ -26,7 +26,7 @@ class AudioPlayer {
             do {
                 audioPlayer = try AVAudioPlayer(data: data)
                 audioPlayer?.prepareToPlay()
-                normalizeVolume()
+//                normalizeVolume()
                 audioPlayer?.numberOfLoops = -1
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
@@ -39,12 +39,12 @@ class AudioPlayer {
         task.resume()
     }
 
-    static func normalizeVolume() {
-        guard let audioPlayer = audioPlayer else { return }
-        let currentPeakVolume = audioPlayer.peakPower(forChannel: 0)
-        let volumeMultiplier = peakVolume / currentPeakVolume
-        audioPlayer.setVolume(volumeMultiplier, fadeDuration: 0)
-    }
+//    static func normalizeVolume() {
+//        guard let audioPlayer = audioPlayer else { return }
+//        let currentPeakVolume = audioPlayer.peakPower(forChannel: 0)
+//        let volumeMultiplier = peakVolume / currentPeakVolume
+//        audioPlayer.setVolume(volumeMultiplier, fadeDuration: 0)
+//    }
 
     static func playMusic(url: URL) {
         preloadAudioPlayer(url: url)

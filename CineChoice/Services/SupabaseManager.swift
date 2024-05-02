@@ -285,10 +285,13 @@ class SupabaseManager: ObservableObject {
     func updateUserInteractions() async throws {
         // Fetch the updated film ratings from the database
         let updatedUserInteractions = try await fetchUserInteractions(for: FCUUID.uuidForDevice())
+        let bla = try await fetchAllInteractions()
         // Update the @Published var
         DispatchQueue.main.async {
             self.userInteractions = updatedUserInteractions
+            self.allInteractions = bla
         }
     }
     
+  
 }
