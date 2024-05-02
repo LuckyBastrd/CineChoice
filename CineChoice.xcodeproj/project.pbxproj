@@ -189,11 +189,8 @@
 				769FC5A12BE0E1AF00D149FB /* ScanView.swift */,
 				0584A8782BE158EC00C7B67B /* TestView.swift */,
 				F85DBB022BE27A8400C2ACD0 /* ProfileView.swift */,
-
 				F85DBB062BE287FC00C2ACD0 /* FilmView.swift */,
-
 				76BD4EDE2BE2AEDF00DAB713 /* CompatibilityView.swift */,
-
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -574,7 +571,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = NRAJG6453M;
+				DEVELOPMENT_TEAM = 3F3KZHGXN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -609,7 +606,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CineChoice/Preview Content\"";
-				DEVELOPMENT_TEAM = NRAJG6453M;
+				DEVELOPMENT_TEAM = 3F3KZHGXN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";

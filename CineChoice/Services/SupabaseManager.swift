@@ -25,7 +25,7 @@ class SupabaseManager: ObservableObject {
         Task{
             do{
                 let fileName = "pp_"+userId+".png"
-                try await supabase.storage
+                try await supabaseClient.storage
                     .from("userPictures")
                     .upload(path: fileName, file: imageData, options: FileOptions(
                         cacheControl: "3600",
@@ -33,12 +33,12 @@ class SupabaseManager: ObservableObject {
                         upsert: true
                       ))
                 
-                let signedURL = try await supabase.storage
+                let signedURL = try await supabaseClient.storage
                   .from("userPictures")
                   .createSignedURL(path: fileName, expiresIn: 360)
                 
                 let temp = UserModel(userID: userId, userPicture: signedURL.absoluteString, userAction: 0)
-                try await supabase
+                try await supabaseClient
                   .from("user")
                   .insert(temp)
                   .execute()
@@ -67,13 +67,6 @@ class SupabaseManager: ObservableObject {
             Task {
                 do {
 
-                    // Fetch user data
-                    let users = try await fetchUser(for: FCUUID.uuidForDevice())
-
-                    // Fetch film data
-                    let films = try await fetchFilms(for: "1a4aa126000048f89c0e6d249f3249c2")
-
-                    
                     try await fetchInitialData()
                     
                     try await subscribeToRealtimeTable()
@@ -95,7 +88,7 @@ class SupabaseManager: ObservableObject {
         Task {
             do {
                 // Fetch film data
-                let userInteractions = try await fetchUserInteractions(for: "1a4aa126000048f89c0e6d249f3249c2")
+                let userInteractions = try await fetchUserInteractions(for: FCUUID.uuidForDevice())
                 
                 DispatchQueue.main.async {
                     self.userInteractions = userInteractions
@@ -106,16 +99,18 @@ class SupabaseManager: ObservableObject {
                 // Handle error
                 completion(error)
             }
-
+        }
+    }
+    
     func fetchInitialData() async throws {
         // Fetch user data
         let users = try await fetchUser(for: FCUUID.uuidForDevice())
 
         // Fetch film data
-        let films = try await fetchFilms(for: "1a4aa126000048f89c0e6d249f3249c2")
+        let films = try await fetchFilms(for: FCUUID.uuidForDevice())
         
         // Fetch user interaction data
-        let userInteractions = try await fetchUserInteractions(for: "1a4aa126000048f89c0e6d249f3249c2")
+        let userInteractions = try await fetchUserInteractions(for: FCUUID.uuidForDevice())
         
         // Fetch film and map inot card
         _ = try await fetchCards()
@@ -134,7 +129,7 @@ class SupabaseManager: ObservableObject {
     
     func fetchUser(for userid: String) async throws -> [UserModel] {
 
-        let response = try await supabase.from("user").select().equals("userID", value: userid).execute()
+        let response = try await supabaseClient.from("user").select().equals("userID", value: userid).execute()
         
         let data = response.data
         
@@ -167,7 +162,7 @@ class SupabaseManager: ObservableObject {
     }
     
     func fetchCards() async throws -> [CardModel] {
-        let filmData = try await SupabaseManager.shared.fetchFilms(for: "1a4aa126000048f89c0e6d249f3249c2")
+        let filmData = try await SupabaseManager.shared.fetchFilms(for: FCUUID.uuidForDevice())
         
         let mappedCardModels = filmData.map { film in
             return CardModel(film: film)
@@ -280,7 +275,7 @@ class SupabaseManager: ObservableObject {
     
     func updateUserInteractions() async throws {
         // Fetch the updated film ratings from the database
-        let updatedUserInteractions = try await fetchUserInteractions(for: "1a4aa126000048f89c0e6d249f3249c2")
+        let updatedUserInteractions = try await fetchUserInteractions(for: FCUUID.uuidForDevice())
         // Update the @Published var
         DispatchQueue.main.async {
             self.userInteractions = updatedUserInteractions

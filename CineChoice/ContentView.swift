@@ -19,7 +19,7 @@ struct ContentView: View {
         ZStack {
             VStack(spacing: 0) {
                 if supabaseManager.user == nil {
-                    //LoginView()
+                    LoginView()
                 } else {
                     
                     switch selectebTabs {
