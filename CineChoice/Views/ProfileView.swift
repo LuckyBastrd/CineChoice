@@ -44,7 +44,12 @@ struct ProfileView: View {
     
     @EnvironmentObject var supabaseManager: SupabaseManager
     
+    
+    
     @State var pickerSelection = 0
+    
+    @State var navigateToFilm = false
+    @State var selectedFilmId = 0
 
     private var gs = UIScreen.main.bounds.width/17
     
@@ -118,7 +123,8 @@ struct ProfileView: View {
                 }
                 
                 HStack{
-                    FilmGridViewGenerator(input: supabaseManager.userInteractions, filterd: $pickerSelection)
+                    FilmGridViewGenerator(input: supabaseManager.userInteractions, filterd: $pickerSelection, navigateToFilm: $navigateToFilm,
+                                          selectedFilmId: $selectedFilmId)
                         .padding(.horizontal, gs)
                 }
             }
@@ -128,6 +134,9 @@ struct ProfileView: View {
             }
         }
         .background(Color("CCGray1"))
+        .navigationDestination(isPresented: $navigateToFilm) {
+            FilmView(selectedFilm: selectedFilmId)
+        }
 //        .onAppear {
 //            
 //            Task {

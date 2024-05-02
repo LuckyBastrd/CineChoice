@@ -10,11 +10,13 @@ import FCUUID
 
 struct ContentView: View {
     
+    
     @EnvironmentObject var supabaseManager: SupabaseManager
     
     @State var doneLogin = false
     @State var selectedTabs: Tabs = .swipe
     @State var navigateToQR = false
+    
     
     var body: some View {
         ZStack {
@@ -47,6 +49,7 @@ struct ContentView: View {
             .navigationDestination(isPresented: $navigateToQR) {
                 QRView()
             }
+            
             
             
 //            if navigateToQR {
