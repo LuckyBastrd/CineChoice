@@ -21,6 +21,7 @@ class SupabaseManager: ObservableObject {
     @Published var userInteractions: [InteractionModel] = []
     @Published var allInteractions: [AllInteractionModel] = []
     @Published var filmRatings: [FilmRatingModel] = []
+    @Published var allFilms: [allFilmModel] = []
     
     func createNewUser(completion: @escaping (Error?) -> Void, userId: String, imageData: Data){
         Task{
@@ -102,12 +103,16 @@ class SupabaseManager: ObservableObject {
         // Fetch film dating data
         let filmRatings = try await fetchAllFilmRatings()
         
+        
+        let allFilms = try await fetchAllFilms()
+        
         DispatchQueue.main.async {
             self.user = users.first
             self.films = films
             self.userInteractions = userInteractions
             self.allInteractions =  allInteractions
             self.filmRatings = filmRatings
+            self.allFilms = allFilms
 
         }
     }
@@ -124,6 +129,23 @@ class SupabaseManager: ObservableObject {
             let users = try decoder.decode([UserModel].self, from: data)
             
             return users
+        } catch {
+            throw error
+        }
+    }
+    
+    func fetchAllFilms() async throws -> [allFilmModel] {
+
+        let response = try await supabaseClient.from("film").select().execute()
+        
+        let data = response.data
+        
+        let decoder = JSONDecoder()
+        
+        do {
+            let allFilms = try decoder.decode([allFilmModel].self, from: data)
+            
+            return allFilms
         } catch {
             throw error
         }

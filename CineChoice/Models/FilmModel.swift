@@ -13,3 +13,10 @@ struct FilmModel: Decodable, Hashable {
     let filmPoster: String
     let filmSoundtrack: String
 }
+
+struct allFilmModel: Decodable, Hashable {
+    let filmID: Int
+    let filmTitle: String
+    let filmPoster: String
+    let filmSoundtrack: String
+}
