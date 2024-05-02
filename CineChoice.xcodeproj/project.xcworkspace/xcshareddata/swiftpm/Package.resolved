@@ -1,4 +1,5 @@
 {
+  "originHash" : "26526f1c910d9dce21ef38c9226cbfca738e8511855e10276aea9dcd09ae7899",
   "pins" : [
     {
       "identity" : "fcuuid",
@@ -73,5 +74,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

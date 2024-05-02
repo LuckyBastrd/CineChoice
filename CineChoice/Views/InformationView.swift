@@ -10,17 +10,45 @@ import SwiftUI
 struct InformationView: View {
     
     let ratings: FilmRatingModel
+    @Binding var showInformation: Bool
+    @State var selectedAction: String
     
     var body: some View {
+        
+        let totalPercentage = ratings.averageLike + ratings.averageDislike + ratings.averageUnseen
+        
         ZStack {
-            VStack(spacing: 3) {
-                InformationGridView(percentage: ratings.averageDislike, color: .ccYellow)
-                InformationGridView(percentage: ratings.averageDislike, color: .ccRed)
-                InformationGridView(percentage: ratings.averageDislike, color: .ccGray)
+            
+            BlurView(style: .systemThinMaterialDark)
+                .edgesIgnoringSafeArea(.all)
+            
+            ZStack {
+                VStack(spacing: 3) {
+                    InformationGridView(percentage: ratings.averageLike, color: .ccYellow, totalPercentage: CGFloat(totalPercentage), maxHeight: maxAllowedHeight(), selectedAction: selectedAction)
+                    InformationGridView(percentage: ratings.averageDislike, color: .ccRed, totalPercentage: CGFloat(totalPercentage), maxHeight: maxAllowedHeight(), selectedAction: selectedAction)
+                    InformationGridView(percentage: ratings.averageUnseen, color: .ccOtherGray, totalPercentage: CGFloat(totalPercentage), maxHeight: maxAllowedHeight(), selectedAction: selectedAction)
+                }
             }
+            .frame(width: SizeConstant.cardWidth, height: SizeConstant.cardHeight)
         }
-        .frame(width: SizeConstant.cardWidth, height: SizeConstant.cardHeight)
+        .onTapGesture {
+            showInformation = false
+        }
     }
+    
+//    private func maxAllowedHeight() -> CGFloat {
+//        let totalPercentage = ratings.averageLike + ratings.averageDislike + ratings.averageUnseen
+//        return min((SizeConstant.cardWidth), CGFloat(totalPercentage) * (SizeConstant.cardHeight))
+//    }
+}
+
+private extension InformationView {
+    
+    private func maxAllowedHeight() -> CGFloat {
+        let totalPercentage = ratings.averageLike + ratings.averageDislike + ratings.averageUnseen
+        return min((SizeConstant.cardWidth), CGFloat(totalPercentage) * (SizeConstant.cardHeight))
+    }
+    
 }
 
 // Preview

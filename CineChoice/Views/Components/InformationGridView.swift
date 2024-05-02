@@ -11,24 +11,29 @@ struct InformationGridView: View {
 
     let percentage: Int
     let color: Color
+    let totalPercentage: CGFloat
+    let maxHeight: CGFloat
+    let selectedAction: String
     
     var body: some View {
-        HStack {
-            Rectangle()
-                .foregroundColor(color)
-                .frame(height: getHeight())
-                .cornerRadius(10)
-            
-            Text("\(percentage) %")
-                .font(.system(size: 30))
-                .foregroundColor(.black)
-                .background(.clear)
-                .padding(.horizontal, 3)
+        ZStack {
+            if percentage != 0 {
+                Rectangle()
+                    .foregroundColor(color)
+                    .frame(height: min(getHeight(), SizeConstant.cardHeight))
+                    .cornerRadius(10)
+                
+                Text("\(percentage) %")
+                    .font(.system(size: 30))
+                    .foregroundColor(.black)
+                    .background(.clear)
+                    .padding(.horizontal, 3)
+            }
         }
     }
     
     private func getHeight() -> CGFloat {
-        return (UIScreen.main.bounds.height / 1.45) * CGFloat(percentage)
+        return (maxHeight / totalPercentage) * CGFloat(percentage)
     }
 }
 

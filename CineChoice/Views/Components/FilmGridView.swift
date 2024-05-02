@@ -105,7 +105,7 @@ struct FilmGridViewGenerator: View  {
     init(input: [InteractionModel], filterd: Binding<Int>) {
         self.input = input
         self._filter = filterd
-        print("sdfdfsdf: " + String(filter))
+        //print("sdfdfsdf: " + String(filter))
         
         if(!self.input.isEmpty){
             filmGridModelList = []
