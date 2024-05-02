@@ -58,10 +58,6 @@ struct CompatibilityView: View {
                                 if !userInteractions.isEmpty && !supabaseManager.userInteractions.isEmpty{
                                     calculateCompatibility()
                                 }
-//                                Text("80%")
-//                                    .foregroundColor(.white)
-//                                    .bold()
-//                                    .font(.system(size: 45))
                                 Spacer()
                                 KFImage(URL(string: user?.userPicture ?? ""))
                                                         .resizable()
@@ -85,20 +81,6 @@ struct CompatibilityView: View {
         
     }
     
-//    func fetchUserImage(userID: String) {
-//           do {
-//               Task {
-//                   if let user = try await supabaseManager.fetchUser(for: userID).first {
-//                       // Update the user state variable
-//                       self.user = user
-//                       print("User found: \(user)")
-//                   } else {
-//                       print("User not found for ID: \(userID)")
-//                   }
-//               }
-//           }
-//       }
-    
     func fetchUserInformation(userID: String) {
             do {
                 Task {
@@ -118,34 +100,64 @@ struct CompatibilityView: View {
                         print("User not found for ID: \(userID)")
                     }
                 }
-            } catch {
-                print("Error fetching user: \(error)")
             }
         }
     
     func calculateCompatibility() -> some View {
         var sameCount = 0.00
         var diffCount = 0.00
-
-        for interaction1 in userInteractions {
-            for interaction2 in supabaseManager.userInteractions {
-                if interaction1.filmID == interaction2.filmID {
-                    if interaction1.action == interaction2.action {
-                        sameCount += 1
-                        break
-                    } else {
-                        diffCount += 1
-                    }
-                }
+        
+        let userInteractionSet: Set<String> = Set(userInteractions.map { "\($0.filmID)-\($0.action)" })
+        let supabaseInteractionSet: Set<String> = Set(supabaseManager.userInteractions.map { "\($0.filmID)-\($0.action)" })
+            
+            // Determine the smaller set and iterate over it to check for matches
+        let smallerSet = userInteractionSet.count < supabaseInteractionSet.count ? userInteractionSet : supabaseInteractionSet
+        let largerSet = userInteractionSet.count < supabaseInteractionSet.count ? supabaseInteractionSet : userInteractionSet
+            
+        for interaction in smallerSet {
+            // If the interaction exists in the larger set, it's a match
+            if largerSet.contains(interaction) {
+                sameCount += 1
+            } else {
+                diffCount += 1
             }
         }
         
-        var percentage = (sameCount / (sameCount + diffCount)) * 100
+//        if supabaseManager.userInteractions.count < userInteractions.count {
+//            for interaction1 in userInteractions {
+//                for interaction2 in supabaseManager.userInteractions {
+//                    if interaction1.filmID == interaction2.filmID {
+//                        if interaction1.action == interaction2.action {
+//                            sameCount += 1
+//                        } else {
+//                            diffCount += 1
+//                        }
+//                        break
+//                    }
+//                }
+//            }
+//        } else {
+//            for interaction1 in supabaseManager.userInteractions {
+//                for interaction2 in userInteractions {
+//                    print(interaction1.filmTitle + " DAN " + interaction2.filmTitle)
+//                    if interaction1.filmID == interaction2.filmID {
+//                        if interaction1.action == interaction2.action {
+//                            sameCount += 1
+//                        } else {
+//                            diffCount += 1
+//                        }
+//                        break
+//                    }
+//                }
+//            }
+//        }
+                
+        let percentage = (sameCount / (sameCount + diffCount)) * 100
         
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 1
         let formattedPercentage = formatter.string(from: NSNumber(value: percentage))
-        
+
         return Text("\(formattedPercentage ?? "")%")
             .foregroundColor(.white)
             .bold()
