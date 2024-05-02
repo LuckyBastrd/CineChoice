@@ -35,11 +35,6 @@ struct InformationView: View {
             showInformation = false
         }
     }
-    
-//    private func maxAllowedHeight() -> CGFloat {
-//        let totalPercentage = ratings.averageLike + ratings.averageDislike + ratings.averageUnseen
-//        return min((SizeConstant.cardWidth), CGFloat(totalPercentage) * (SizeConstant.cardHeight))
-//    }
 }
 
 private extension InformationView {
@@ -50,6 +45,28 @@ private extension InformationView {
     }
     
 }
+
+//struct StrokeModifier: ViewModifier {
+//    
+//    var selectedAction: String
+//    var giveStroke: Bool = false
+//    
+//    var shouldApplyStroke: Bool {
+//        if selectedAction == "like" {
+//            return true
+//        } else if selectedAction == "dislike" {
+//            return true
+//        } else if selectedAction == "unseen" {
+//            return true
+//        } else {
+//            return giveStroke
+//        }
+//    }
+//    
+//    func body(content: Content) -> some View {
+//        content.overlay(Rectangle().stroke(Color.white, lineWidth: giveStroke ? 5: 0))
+//    }
+//}
 
 // Preview
 //struct InformationView_Previews: PreviewProvider {

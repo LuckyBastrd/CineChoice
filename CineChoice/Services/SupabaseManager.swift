@@ -22,36 +22,6 @@ class SupabaseManager: ObservableObject {
     @Published var allInteractions: [AllInteractionModel] = []
     @Published var filmRatings: [FilmRatingModel] = []
     
-    func createNewUser(completion: @escaping (Error?) -> Void, userId: String, imageData: Data){
-        Task{
-            do{
-                let fileName = "pp_"+userId+".png"
-                try await supabaseClient.storage
-                    .from("userPictures")
-                    .upload(path: fileName, file: imageData, options: FileOptions(
-                        cacheControl: "3600",
-                        contentType: "image/png",
-                        upsert: true
-                      ))
-                
-                let signedURL = try await supabaseClient.storage
-                  .from("userPictures")
-                  .createSignedURL(path: fileName, expiresIn: 360)
-                
-                let temp = UserModel(userID: userId, userPicture: signedURL.absoluteString, userAction: 0)
-                try await supabaseClient
-                  .from("user")
-                  .insert(temp)
-                  .execute()
-                
-                completion(nil)
-                
-            }catch{
-                completion(error)
-            }
-        }
-    }
-    
     // Function to check if data has been fetched previously
     func shouldFetchData() -> Bool {
         return UserDefaults.standard.bool(forKey: "dataFetched")
@@ -123,6 +93,8 @@ class SupabaseManager: ObservableObject {
         do {
             let users = try decoder.decode([UserModel].self, from: data)
             
+            print(users)
+            
             return users
         } catch {
             throw error
@@ -172,8 +144,6 @@ class SupabaseManager: ObservableObject {
             
             do {
                 let allInteractions = try decoder.decode([AllInteractionModel].self, from: data)
-                
-                print(allInteractions)
                 
                 return allInteractions
             } catch {

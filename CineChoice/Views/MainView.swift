@@ -48,23 +48,23 @@ struct MainView: View {
             } 
             
         }
-        //        .onChange(of: currentIndex) { oldValue, newValue in
-        //            
-        //            guard oldValue != currentIndex else { return }
-        //            
-        //            if currentIndex == -1 {
-        //                AudioPlayer.stopMusic()
-        //                return
-        //            }
-        //
-        //            
-        //            if newValue < supabaseManager.cards.count {
-        //                let cardModel = supabaseManager.cards[newValue]
-        //                if let soundtrackURL = URL(string: cardModel.film.filmSoundtrack) {
-        //                    AudioPlayer.changeMusic(url: soundtrackURL)
-        //                }
-        //            }
-        //        }
+        .onChange(of: currentIndex) { oldValue, newValue in
+            
+            guard oldValue != currentIndex else { return }
+            
+            if currentIndex == -1 {
+                AudioPlayer.stopMusic()
+                return
+            }
+
+            
+            if newValue < supabaseManager.cards.count {
+                let cardModel = supabaseManager.cards[newValue]
+                if let soundtrackURL = URL(string: cardModel.film.filmSoundtrack) {
+                    AudioPlayer.changeMusic(url: soundtrackURL)
+                }
+            }
+        }
     }
 }
 

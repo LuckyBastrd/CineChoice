@@ -8,7 +8,7 @@
 import Foundation
 import Supabase
 
-class CreateManager {
+class CreateManager: ObservableObject {
     
     static let shared = CreateManager()
     
@@ -24,6 +24,36 @@ class CreateManager {
                                                                 "action": action]).execute()
         } catch {
             print("Error: \(error)")
+        }
+    }
+    
+    func createNewUser(completion: @escaping (Error?) -> Void, userId: String, imageData: Data){
+        Task{
+            do{
+                let fileName = "pp_"+userId+".png"
+                try await supabaseClient.storage
+                    .from("userPictures")
+                    .upload(path: fileName, file: imageData, options: FileOptions(
+                        cacheControl: "3600",
+                        contentType: "image/png",
+                        upsert: true
+                      ))
+                
+                let signedURL = try await supabaseClient.storage
+                  .from("userPictures")
+                  .createSignedURL(path: fileName, expiresIn: 360)
+                
+                let temp = UserModel(userID: userId, userPicture: signedURL.absoluteString, userAction: 0)
+                try await supabaseClient
+                  .from("user")
+                  .insert(temp)
+                  .execute()
+                
+                completion(nil)
+                
+            }catch{
+                completion(error)
+            }
         }
     }
     
